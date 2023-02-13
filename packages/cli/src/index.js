@@ -5,28 +5,26 @@ const __dirname = new URL('.', import.meta.url).pathname;
 const kitDir = join(__dirname, '../../studio');
 const cwd = process.cwd();
 
-export async function dev() {
+function createSvelteKitChildProcess(...args) {
     try {
-        await execa('npm', ['run', 'dev'], {
+        const { stdout, stderr } = execa(...args, {
             cwd: kitDir,
             env: {
                 PROCESS_CWD: cwd
             }
-        }).stdout.pipe(process.stdout);
+        });
+
+        stdout.pipe(process.stdout);
+        stderr.pipe(process.stderr);
     } catch (error) {
         console.log(error);
     }
 }
 
+export async function dev() {
+    createSvelteKitChildProcess('npm', ['run', 'dev']);
+}
+
 export async function build() {
-    try {
-        await execa('npm', ['run', 'build'], {
-            cwd: kitDir,
-            env: {
-                PROCESS_CWD: cwd
-            }
-        }).stdout.pipe(process.stdout);
-    } catch (error) {
-        console.log(error);
-    }
+    createSvelteKitChildProcess('npm', ['run', 'build']);
 }
