@@ -6,7 +6,9 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			out: join(process.env.PROCESS_CWD, 'build'),
+		}),
         outDir: join(process.env.PROCESS_CWD, '.svelte-kit'),
 	}
 };
