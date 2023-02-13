@@ -9,6 +9,9 @@ const config = {
 		adapter: adapter({
 			out: join(process.env.PROCESS_CWD, 'build'),
 		}),
+		env: {
+			dir: join(process.env.PROCESS_CWD)
+		},
         outDir: join(process.env.PROCESS_CWD, '.svelte-kit'),
 	}
 };
