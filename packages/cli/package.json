@@ -1,6 +1,6 @@
 {
     "name": "@unding/cli",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "bin": {
         "unding": "./src/bin/cli.js"
     },
