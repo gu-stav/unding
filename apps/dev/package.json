@@ -8,7 +8,8 @@
     },
     "scripts": {
         "dev": "unding dev",
-        "build": "unding build"
+        "build": "unding build",
+        "preview": "unding preview"
     },
     "type": "module"
 }
