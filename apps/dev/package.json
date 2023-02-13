@@ -1,0 +1,13 @@
+{
+    "name": "example-studio",
+    "private": true,
+    "dependencies": {
+        "@unding/cli": "workspace:*",
+        "@unding/studio": "workspace:*"
+    },
+    "scripts": {
+        "dev": "unding dev",
+        "build": "unding build"
+    },
+    "type": "module"
+}

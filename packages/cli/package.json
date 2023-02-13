@@ -1,0 +1,13 @@
+{
+    "name": "@unding/cli",
+    "bin": {
+        "unding": "./src/bin/cli.js"
+    },
+    "dependencies": {
+        "commander": "^9.2.0",
+        "execa": "^7.0.0",
+        "ora": "^6.1.0"
+    },
+    "type": "module",
+    "main": "./src/index.js"
+}
