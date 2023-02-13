@@ -1,16 +1,26 @@
 import { execa } from 'execa';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
+import { existsSync } from 'node:fs';
 
-const __dirname = new URL('.', import.meta.url).pathname;
-const kitDir = join(__dirname, '../../studio');
-const cwd = process.cwd();
+function getSvelteKitPath() {
+    const __dirname = new URL('.', import.meta.url).pathname;
+    const devSvelteKitPath = join(__dirname, '../../studio');
+
+    if (existsSync(devSvelteKitPath)) {
+        return devSvelteKitPath;
+    }
+
+    return resolve("node_modules", "@unding", "studio");
+}
+
+console.log(getSvelteKitPath())
 
 function createSvelteKitChildProcess(...args) {
     try {
         const { stdout, stderr } = execa(...args, {
-            cwd: kitDir,
+            cwd: getSvelteKitPath(),
             env: {
-                PROCESS_CWD: cwd
+                PROCESS_CWD: process.cwd()
             }
         });
 
