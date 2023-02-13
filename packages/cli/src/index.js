@@ -13,8 +13,6 @@ function getSvelteKitPath() {
     return resolve("node_modules", "@unding", "studio");
 }
 
-console.log(getSvelteKitPath())
-
 function createSvelteKitChildProcess(...args) {
     try {
         const { stdout, stderr } = execa(...args, {
@@ -37,4 +35,8 @@ export async function dev() {
 
 export async function build() {
     createSvelteKitChildProcess('npm', ['run', 'build']);
+}
+
+export async function preview() {
+    createSvelteKitChildProcess('npm', ['run', 'preview']);
 }

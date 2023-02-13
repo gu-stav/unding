@@ -2,7 +2,7 @@
 
 import { program } from "commander";
 
-import { dev, build } from '../index.js';
+import { dev, build, preview } from '../index.js';
 
 program
   .command('build')
@@ -11,5 +11,9 @@ program
 program
   .command('dev')
   .action(dev);
+
+program
+  .command('preview')
+  .action(preview);
 
 program.parse();
