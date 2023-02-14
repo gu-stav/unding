@@ -1,10 +1,13 @@
 <script>
-    import { Box, Text } from '@unding/ui';
+    import { Box, Flex, Text } from '@unding/ui';
 
     export let title;
 </script>
 
-<Box as="ol">
+<Flex direction="col" gap={2}>
     <Text as="h2" transform="uppercase" weight="bold">{title}</Text>
-    <slot />
-</Box>
+
+    <Box as="ol">
+        <slot />
+    </Box>
+</Flex>

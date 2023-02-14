@@ -1,7 +1,7 @@
 <script>
-    import { Box } from '@unding/ui';
+    import { Flex } from '@unding/ui';
 </script>
 
-<Box as="nav" padding={3} height="full-vh" borderColor="neutral-200" border="right">
+<Flex as="nav" direction="col" gap={4} padding={3} height="full-vh" borderColor="neutral-200" border="right">
     <slot />
-</Box>
+</Flex>
