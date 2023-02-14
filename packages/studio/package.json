@@ -6,6 +6,7 @@
         "@auth/sveltekit": "^0.2.1",
         "@sveltejs/adapter-node": "^1.2.0",
         "@sveltejs/kit": "^1.5.0",
+        "@unding/ui": "workspace:*",
         "svelte": "^3.54.0",
         "vite": "^4.0.0"
     },

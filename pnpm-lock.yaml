@@ -31,6 +31,7 @@ importers:
       '@auth/sveltekit': ^0.2.1
       '@sveltejs/adapter-node': ^1.2.0
       '@sveltejs/kit': ^1.5.0
+      '@unding/ui': workspace:*
       svelte: ^3.54.0
       vite: ^4.0.0
     dependencies:
@@ -38,8 +39,15 @@ importers:
       '@auth/sveltekit': 0.2.1_vjmuw4jy4hji6q4s6wxo6clpfq
       '@sveltejs/adapter-node': 1.2.0_@sveltejs+kit@1.5.6
       '@sveltejs/kit': 1.5.6_svelte@3.55.1+vite@4.1.1
+      '@unding/ui': link:../ui
       svelte: 3.55.1
       vite: 4.1.1
+
+  packages/ui:
+    specifiers:
+      clsx: ^1.2.1
+    dependencies:
+      clsx: 1.2.1
 
 packages:
 
@@ -499,6 +507,11 @@ packages:
   /clone/1.0.4:
     resolution: {integrity: sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==}
     engines: {node: '>=0.8'}
+    dev: false
+
+  /clsx/1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
     dev: false
 
   /commander/9.5.0:

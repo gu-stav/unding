@@ -1,15 +1,15 @@
 <script>
-    import { signOut } from "@auth/sveltekit/client"
-    import { page } from "$app/stores"
+    import { page } from "$app/stores";
+    import { Flex, theme } from '@unding/ui';
+
+    import { Layout, Navigation, ThemeProvider } from "$lib/shared/components";
 </script>
 
-{#if $page.data.session}
-    <span class="signedInText">
-        <small>Signed in as</small><br />
-        <strong>{$page.data.session.user?.name ?? "User"}</strong>
-    </span>
-
-    <a href="/auth/signout" data-sveltekit-preload-data="off">Sign out</a>
-{/if}
-
-<slot />
+<ThemeProvider theme={theme}>
+    <Layout>
+        <Flex as="main">
+            <Navigation user={$page.data.session?.user} />
+            <slot />
+        </Flex>
+    </Layout>
+</ThemeProvider>
