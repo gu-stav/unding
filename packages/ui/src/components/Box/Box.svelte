@@ -2,12 +2,13 @@
     import clsx from 'clsx';
 
     let rest;
-    $: ({ as = 'div', backgroundColor, border, borderColor, borderRadius, borderWidth = '1px', color, display, fontWeight, gap, height, direction, padding, position, textTransform, ...rest } = $$props);
+    $: ({ as = 'div', backgroundColor, border, borderColor, borderRadius, borderWidth = '1px', bottom, color, display, fontWeight, gap, height, direction, padding, position, right, top, textTransform, ...rest } = $$props);
 
     let cssClass;
 
     $: cssClass = clsx(
         'box',
+        bottom && 'bottom',
         display,
         gap && `gap`,
         direction && `flex-${direction}`,
@@ -19,7 +20,9 @@
         height && 'h',
         padding && `p`,
         position,
-        textTransform
+        right && 'right',
+        textTransform,
+        top && 'top',
     );
 </script>
 
@@ -28,11 +31,14 @@
     class={cssClass}
     data-gap={gap}
     data-bg={backgroundColor}
+    data-bottom={bottom}
     data-border={border}
     data-border-color={borderColor}
     data-font-weight={fontWeight}
     data-height={height}
+    data-right={right}
     data-text={color}
+    data-top={top}
     data-p={padding}
     {...rest}
 >
@@ -46,6 +52,10 @@
 
     .block {
         display: block;
+    }
+
+    .absolute {
+        position: absolute;
     }
 
     .flex {
@@ -286,5 +296,113 @@
 
     .border-radius {
         border-radius: var(--spacing-1_5);
+    }
+
+    .bottom[data-bottom="0"] {
+        bottom: 0;
+    }
+
+    .bottom[data-bottom="0.5"] {
+        bottom: var(--spacing-0_5);
+    }
+
+    .bottom[data-bottom="1"] {
+        bottom: var(--spacing-1);
+    }
+
+    .bottom[data-bottom="1.5"] {
+        bottom: var(--spacing-1_5);
+    }
+
+    .bottom[data-bottom="2"] {
+        bottom: var(--spacing-2);
+    }
+
+    .bottom[data-bottom="2.5"] {
+        bottom: var(--spacing-2_5);
+    }
+
+    .bottom[data-bottom="3"] {
+        bottom: var(--spacing-3);
+    }
+
+    .bottom[data-bottom="3.5"] {
+        bottom: var(--spacing-3_5);
+    }
+
+    .bottom[data-bottom="4"] {
+        gap: var(--spacing-4);
+    }
+
+    .right[data-top="0"] {
+        top: 0;
+    }
+
+    .right[data-top="0.5"] {
+        top: var(--spacing-0_5);
+    }
+
+    .right[data-right="1"] {
+        right: var(--spacing-1);
+    }
+
+    .right[data-right="1.5"] {
+        right: var(--spacing-1_5);
+    }
+
+    .right[data-right="2"] {
+        right: var(--spacing-2);
+    }
+
+    .right[data-right="2.5"] {
+        right: var(--spacing-2_5);
+    }
+
+    .right[data-right="3"] {
+        right: var(--spacing-3);
+    }
+
+    .right[data-right="3.5"] {
+        right: var(--spacing-3_5);
+    }
+
+    .right[data-right="4"] {
+        gap: var(--spacing-4);
+    }
+
+    .top[data-top="0"] {
+        top: 0;
+    }
+
+    .top[data-top="0.5"] {
+        top: var(--spacing-0_5);
+    }
+
+    .top[data-top="1"] {
+        top: var(--spacing-1);
+    }
+
+    .top[data-top="1.5"] {
+        top: var(--spacing-1_5);
+    }
+
+    .top[data-top="2"] {
+        top: var(--spacing-2);
+    }
+
+    .top[data-top="2.5"] {
+        top: var(--spacing-2_5);
+    }
+
+    .top[data-top="3"] {
+        top: var(--spacing-3);
+    }
+
+    .top[data-top="3.5"] {
+        top: var(--spacing-3_5);
+    }
+
+    .top[data-top="4"] {
+        gap: var(--spacing-4);
     }
 </style>
