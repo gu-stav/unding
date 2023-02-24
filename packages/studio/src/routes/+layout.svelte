@@ -22,7 +22,7 @@
                 {#each NAVIGATION_GROUPS as group}
                     <Navigation.Group title={group.title}>
                         {#each group.items as item}
-                            <Navigation.Item href={item.href} isActive={$page.route.id.startsWith(item.href)}>
+                            <Navigation.Item href={item.href} isActive={!!$page.route.id?.startsWith(item.href)}>
                                 {item.label}
                             </Navigation.Item>
                         {/each}

@@ -3,9 +3,8 @@ import { default as Footer } from './Footer.svelte';
 import { default as Group } from './Group.svelte';
 import { default as Item } from './Item.svelte';
 
-export default {
-    ...NavigationDefault,
-    Footer,
-    Group,
-    Item
-};
+NavigationDefault.Footer = Footer;
+NavigationDefault.Group = Group;
+NavigationDefault.Item = Item;
+
+export default NavigationDefault;

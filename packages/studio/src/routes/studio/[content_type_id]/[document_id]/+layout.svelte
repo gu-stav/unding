@@ -4,7 +4,7 @@
     import { Box, Flex } from '@unding/ui';
 </script>
 
-<Flex gap={1}>
+<Flex gap={1} direction="col">
     <button type="button" on:click={() => paneStore.swap()}>
         Swap panes
     </button>

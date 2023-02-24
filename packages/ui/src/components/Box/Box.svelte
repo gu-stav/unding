@@ -54,6 +54,11 @@
     data-p={padding}
     {...$$restProps}
     on:click
+    on:change
+    on:keydown
+    on:keyup
+    on:mouseenter
+    on:mouseleave
 >
     <slot />
 </svelte:element>
@@ -347,12 +352,12 @@
         gap: var(--spacing-4);
     }
 
-    .right[data-top="0"] {
-        top: 0;
+    .right[data-right="0"] {
+        right: 0;
     }
 
-    .right[data-top="0.5"] {
-        top: var(--spacing-0_5);
+    .right[data-right="0.5"] {
+        right: var(--spacing-0_5);
     }
 
     .right[data-right="1"] {

@@ -1,5 +1,6 @@
 <script>
     import { page } from "$app/stores";
+    import { Box } from '@unding/ui';
     import { SubNavigation } from '$lib/shared/components';
 </script>
 
@@ -15,4 +16,6 @@
     </SubNavigation.Group>
 </SubNavigation>
 
-<slot />
+<Box padding={3}>
+    <slot />
+</Box>
