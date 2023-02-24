@@ -1,10 +1,9 @@
 <script>
     import { Box } from '../Box';
 
-    let rest;
-    $: ({ display = 'flex', ...rest } = $$props);
+    export let display = 'flex';
 </script>
 
-<Box display={display} {...rest}>
+<Box display={display} {...$$restProps}>
     <slot />
 </Box>

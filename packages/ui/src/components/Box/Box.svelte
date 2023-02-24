@@ -1,12 +1,29 @@
 <script>
     import clsx from 'clsx';
 
-    let rest;
-    $: ({ as = 'div', backgroundColor, border, borderColor, borderRadius, borderWidth = '1px', bottom, color, display, fontWeight, gap, height, direction, padding, position, right, top, textTransform, ...rest } = $$props);
+    export let as = 'div';
+    export let backgroundColor;
+    export let border;
+    export let borderColor;
+    export let borderRadius;
+    export let borderWidth = '1px';
+    export let bottom;
+    export let color;
+    export let direction;
+    export let display;
+    export let fontWeight;
+    export let gap;
+    export let height;
+    export let padding;
+    export let position;
+    export let right;
+    export let top;
+    export let textTransform;
+</script>
 
-    let cssClass;
-
-    $: cssClass = clsx(
+<svelte:element
+    this={as}
+    class={clsx(
         'box',
         bottom && 'bottom',
         display,
@@ -23,12 +40,7 @@
         right && 'right',
         textTransform,
         top && 'top',
-    );
-</script>
-
-<svelte:element
-    this={as}
-    class={cssClass}
+    )}
     data-gap={gap}
     data-bg={backgroundColor}
     data-bottom={bottom}
@@ -40,7 +52,8 @@
     data-text={color}
     data-top={top}
     data-p={padding}
-    {...rest}
+    {...$$restProps}
+    on:click
 >
     <slot />
 </svelte:element>

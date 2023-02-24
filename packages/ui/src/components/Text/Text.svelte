@@ -1,10 +1,11 @@
 <script>
     import { Box } from '../Box';
 
-    let rest;
-    $: ({ as = 'span', transform, weight, ...rest } = $$props);
+    export let as = 'span';
+    export let transform;
+    export let weight;
 </script>
 
-<Box as={as} fontWeight={weight} textTransform={transform} {...rest}>
+<Box as={as} fontWeight={weight} textTransform={transform} {...$$restProps}>
     <slot />
 </Box>
