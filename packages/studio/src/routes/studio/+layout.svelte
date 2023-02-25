@@ -16,6 +16,6 @@
     </SubNavigation.Group>
 </SubNavigation>
 
-<Box padding={3}>
+<Box padding={3} flexGrow={1}>
     <slot />
 </Box>

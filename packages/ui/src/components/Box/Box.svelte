@@ -11,6 +11,7 @@
     export let color;
     export let direction;
     export let display;
+    export let flexGrow;
     export let fontWeight;
     export let gap;
     export let height;
@@ -33,6 +34,7 @@
         borderColor && border && `border`,
         borderRadius && "border-radius",
         color && 'text',
+        flexGrow && 'grow',
         fontWeight && 'font',
         height && 'h',
         padding && `p`,
@@ -422,5 +424,9 @@
 
     .top[data-top="4"] {
         gap: var(--spacing-4);
+    }
+
+    .grow {
+        flex-grow: 1;
     }
 </style>
