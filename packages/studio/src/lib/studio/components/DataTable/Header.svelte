@@ -2,6 +2,6 @@
     import { Box } from '@unding/ui';
 </script>
 
-<Box as="theader">
+<Box as="thead">
     <slot />
 </Box>

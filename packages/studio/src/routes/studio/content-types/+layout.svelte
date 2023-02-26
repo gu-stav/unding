@@ -8,7 +8,7 @@
     <SubNavigation.Group title="Content-Types">
         {#each $page.data.contentTypes as contentType}
             <SubNavigation.Item
-                href="/studio/{contentType.id}"
+                href="/studio/content-types/{contentType.id}"
                 isActive={$page.params.content_type_id == contentType.id}>
                 {contentType.name}
             </SubNavigation.Item>
@@ -16,6 +16,6 @@
     </SubNavigation.Group>
 </SubNavigation>
 
-<Box padding={3} flexGrow={1}>
+<Box flexGrow={1}>
     <slot />
 </Box>

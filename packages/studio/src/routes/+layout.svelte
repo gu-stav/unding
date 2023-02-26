@@ -8,7 +8,12 @@
             items: [
                 {
                     label: 'Content-Types',
-                    href: '/studio',
+                    href: '/studio/content-types',
+                },
+
+                {
+                    label: 'Assets',
+                    href: '/studio/assets',
                 },
             ],
         },

@@ -44,6 +44,10 @@
 		font-weight: inherit;
 	}
 
+	:global(table) {
+		border-collapse: collapse;
+	}
+
 	.container {
 		background-color: var(--colors-neutral-50);
 		color: var(--colors-neutral-900);

@@ -11,7 +11,9 @@
     export let color;
     export let direction;
     export let display;
+    export let flexAlignItems;
     export let flexGrow;
+    export let flexJustify;
     export let fontWeight;
     export let gap;
     export let height;
@@ -20,6 +22,7 @@
     export let right;
     export let top;
     export let textTransform;
+    export let width;
 </script>
 
 <svelte:element
@@ -34,6 +37,8 @@
         borderColor && border && `border`,
         borderRadius && "border-radius",
         color && 'text',
+        flexAlignItems && `items-${flexAlignItems}`,
+        flexJustify && `justify-${flexJustify}`,
         flexGrow && 'grow',
         fontWeight && 'font',
         height && 'h',
@@ -42,6 +47,7 @@
         right && 'right',
         textTransform,
         top && 'top',
+        width && 'w'
     )}
     data-gap={gap}
     data-bg={backgroundColor}
@@ -54,6 +60,7 @@
     data-text={color}
     data-top={top}
     data-p={padding}
+    data-width={width}
     {...$$restProps}
     on:click
     on:change
@@ -428,5 +435,37 @@
 
     .grow {
         flex-grow: 1;
+    }
+
+    .items-start {
+        align-items: flex-start;
+    }
+
+    .items-end {
+        align-items: flex-end;
+    }
+
+    .items-center {
+        align-items: center;
+    }
+
+    .justify-start {
+        justify-content: flex-start;
+    }
+
+    .justify-end {
+        justify-content: flex-end;
+    }
+
+    .justify-center {
+        justify-content: center;
+    }
+
+    .justify-between {
+        justify-content: space-between;
+    }
+
+    .w[data-width="full"] {
+        width: 100%;
     }
 </style>
