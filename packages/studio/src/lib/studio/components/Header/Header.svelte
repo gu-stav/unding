@@ -1,13 +1,9 @@
-<script>
-    import { Flex, Text } from '@unding/ui';
-</script>
-
-<Flex alignItems="center" justify="between" padding={3}>
-    <Text as="h2" weight="bold" transform="uppercase">
+<div class="flex flex-row p-3 justify-between">
+    <h2 class="bold uppercase">
         <slot name="title" />
-    </Text>
+    </h2>
 
-    <Flex gap={2}>
+    <div class="flex gap-2">
         <slot name="action" />
-    </Flex>
-</Flex>
+    </div>
+</div>

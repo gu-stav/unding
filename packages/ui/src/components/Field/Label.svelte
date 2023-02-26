@@ -1,7 +1,3 @@
-<script>
-    import { Box } from '../Box';
-</script>
-
-<Box as="label">
+<label>
     <slot />
-</Box>
+</label>

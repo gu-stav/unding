@@ -21,7 +21,7 @@ function getSvelteKitPath() {
 
 async function createSvelteKitChildProcess(...args) {
     try {
-        const { stdout, stderr } = await execa(...args, {
+        const { stdout, stderr } = execa(...args, {
             cwd: getSvelteKitPath(),
             env: {
                 PROCESS_CWD: process.cwd()

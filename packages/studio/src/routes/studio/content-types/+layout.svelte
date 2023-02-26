@@ -1,6 +1,5 @@
 <script>
     import { page } from "$app/stores";
-    import { Box } from '@unding/ui';
     import { SubNavigation } from '$lib/shared/components';
 </script>
 
@@ -16,6 +15,6 @@
     </SubNavigation.Group>
 </SubNavigation>
 
-<Box flexGrow={1}>
+<div class="flex flex-col grow">
     <slot />
-</Box>
+</div>

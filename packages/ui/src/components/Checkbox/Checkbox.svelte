@@ -1,8 +1,8 @@
 <script>
-    import { Box, Field } from '..';
+    import { Field } from '..';
 </script>
 
 <Field.Label>
-    <Box as="input" type="checkbox" {...$$restProps} />
+    <input type="checkbox" {...$$restProps} />
     <slot />
 </Field.Label>

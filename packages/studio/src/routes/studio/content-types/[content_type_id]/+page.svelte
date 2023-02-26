@@ -1,7 +1,7 @@
 <script>
     import { page } from "$app/stores";
     import { Header, DataTable } from '$lib/studio/components';
-    import { Box, Button, Flex } from '@unding/ui';
+    import { Button } from '@unding/ui';
 </script>
 
 <Header>
@@ -16,8 +16,8 @@
     </svelte:fragment>
 </Header>
 
-<Flex direction="col">
-    <Flex grow={1}>
+<div class="flex flex-col">
+    <div class="flex flex-col">
         <DataTable>
             <DataTable.Header>
                 <DataTable.HeaderCell>
@@ -43,15 +43,15 @@
                         </DataTable.Cell>
 
                         <DataTable.Cell>
-                            <Box as="a" href="/studio/content-types/{document.contentTypeId}/{document.id}/">Edit</Box>
+                            <a href="/studio/content-types/{document.contentTypeId}/{document.id}/">Edit</a>
                         </DataTable.Cell>
                     </DataTable.Row>
                 {/each}
             </DataTable.Body>
         </DataTable>
-    </Flex>
+    </div>
 
-    <Flex backgroundColor="neutral-100" padding={3}>
+    <div class="flex flex-row bg-neutral-100 p-3">
         Pagination
-    </Flex>
-</Flex>
+    </div>
+</div>

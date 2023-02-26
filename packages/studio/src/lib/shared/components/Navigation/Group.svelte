@@ -1,15 +1,13 @@
 <script>
-    import { Box, Flex, Text } from '@unding/ui';
-
     export let title;
 </script>
 
-<Flex gap={1}>
+<div class="flex">
     {#if title}
-        <Text as="h2" transform="uppercase" weight="bold">{title}</Text>
+        <h2 class="upperacase bold">{title}</h2>
     {/if}
 
-    <Box as="ol">
+    <ol>
         <slot />
-    </Box>
-</Flex>
+    </ol>
+</div>

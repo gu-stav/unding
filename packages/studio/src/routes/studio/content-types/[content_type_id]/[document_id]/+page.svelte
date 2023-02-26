@@ -2,7 +2,7 @@
     import { page } from "$app/stores";
     import paneStore from '$lib/studio/stores/panes';
     import { Header } from '$lib/studio/components';
-    import { Box, Button, Flex } from '@unding/ui';
+    import { Button } from '@unding/ui';
 </script>
 
 <form method="GET">
@@ -18,17 +18,17 @@
         </svelte:fragment>
     </Header>
 
-    <Flex gap={1} direction="col" grow={1}>
-        <Box as="button" on:click={() => paneStore.swap()}>
+    <div class="flex flex-col">
+        <button on:click={() => paneStore.swap()}>
             Swap panes
-        </Box>
+        </button>
 
-        <Flex grow={1}>
+        <div class="flex">
             {#each $paneStore.panes as pane}
-                <Flex grow={1}>
-                    <Box as="button" on:click={() => paneStore.close(pane.type)}>
+                <div class="flex">
+                    <button on:click={() => paneStore.close(pane.type)}>
                         Close pane {pane.type}
-                    </Box>
+                    </button>
 
                     {#if pane.type === 'edit'}
                         <h2>Document</h2>
@@ -37,8 +37,8 @@
                         <h2>Preview</h2>
                         [{$page.params.document_id}]
                     {/if}
-                </Flex>
+                </div>
             {/each}
-        </Flex>
-    </Flex>
+        </div>
+    </div>
 </form>

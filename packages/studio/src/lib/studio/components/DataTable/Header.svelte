@@ -1,7 +1,3 @@
-<script>
-    import { Box } from '@unding/ui';
-</script>
-
-<Box as="thead">
+<thead>
     <slot />
-</Box>
+</thead>
