@@ -1,6 +1,11 @@
 import { execa } from 'execa';
 import { join, resolve } from 'node:path';
 import { existsSync } from 'node:fs';
+import { startServer } from '@unding/studio';
+import ora from 'ora';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 function getSvelteKitPath() {
     const __dirname = new URL('.', import.meta.url).pathname;
@@ -13,30 +18,47 @@ function getSvelteKitPath() {
     return resolve("node_modules", "@unding", "studio");
 }
 
-function createSvelteKitChildProcess(...args) {
+async function createSvelteKitChildProcess(command, params, options = { stdout: true, stderr: true }) {
     try {
-        const { stdout, stderr } = execa(...args, {
+        const { stdout, stderr } = await execa(command, params, {
             cwd: getSvelteKitPath(),
             env: {
                 PROCESS_CWD: process.cwd()
             }
         });
 
-        stdout.pipe(process.stdout);
-        stderr.pipe(process.stderr);
+        if (options?.stdout) {
+            stdout.pipe(process.stdout);
+        }
+
+        if (options?.stderr) {
+            stderr.pipe(process.stderr);
+        }
     } catch (error) {
         console.log(error);
     }
 }
 
+export async function start() {
+    const spinner = ora('Building @unding/studio');
+
+    spinner.start();
+
+    await build({ stdout: false });
+
+    spinner.text = 'Starting server';
+
+    const port = await startServer();
+
+    spinner.text = `Sever started on http://localhost:${port}`;
+
+    spinner.succeed();
+}
+
 export async function dev() {
-    createSvelteKitChildProcess('npm', ['run', 'dev']);
+    await createSvelteKitChildProcess('npm', ['run', 'dev']);
 }
 
-export async function build() {
-    createSvelteKitChildProcess('npm', ['run', 'build']);
-}
-
-export async function preview() {
-    createSvelteKitChildProcess('npm', ['run', 'preview']);
+export async function build(options) {
+    await createSvelteKitChildProcess('npm', ['run', 'build'], options);
 }

@@ -9,7 +9,7 @@
     "scripts": {
         "dev": "unding dev",
         "build": "unding build",
-        "preview": "unding preview"
+        "start": "unding start"
     },
     "type": "module"
 }

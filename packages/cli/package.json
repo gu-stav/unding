@@ -6,9 +6,16 @@
     },
     "dependencies": {
         "commander": "^9.2.0",
+        "dotenv": "^16.0.3",
         "execa": "^7.0.0",
         "ora": "^6.1.0"
     },
     "type": "module",
-    "main": "./src/index.js"
+    "main": "./src/index.js",
+    "devDependencies": {
+        "@unding/studio": "workspace:*"
+    },
+    "peerDependencies": {
+        "@unding/studio": "workspace:*"
+    }
 }

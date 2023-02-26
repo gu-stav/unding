@@ -3,7 +3,7 @@ import { sequence } from '@sveltejs/kit/hooks';
 import { redirect } from '@sveltejs/kit';
 
 async function getUserConfig() {
-  return await import(/* @vite-ignore */ `${process.env.PROCESS_CWD}/unding.config.js`);
+  return await import(/* @vite-ignore */ `${process.env?.PROCESS_CWD ?? process.cwd()}/unding.config.js`);
 }
 
 const userConfig = await getUserConfig();
@@ -29,6 +29,7 @@ const setupAuthProviders = async (...args) => {
   const { event } = args[0];
 
   return SvelteKitAuth({
+    trustHost: true,
     providers: event.locals.config.auth.providers,
   })(...args);
 }
