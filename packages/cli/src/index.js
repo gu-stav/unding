@@ -1,15 +1,16 @@
+import * as dotenv from 'dotenv';
 import { execa } from 'execa';
 import { join, resolve } from 'node:path';
 import { existsSync } from 'node:fs';
 import { startServer } from '@unding/studio';
+import { fileURLToPath } from 'url';
 import ora from 'ora';
-import * as dotenv from 'dotenv';
 
 dotenv.config();
 
 function getSvelteKitPath() {
-    const __dirname = new URL('.', import.meta.url).pathname;
-    const devSvelteKitPath = join(__dirname, '../../studio');
+    const __dirname = fileURLToPath(new URL('.', import.meta.url));
+    const devSvelteKitPath = resolve(join(__dirname, '../../studio'));
 
     if (existsSync(devSvelteKitPath)) {
         return devSvelteKitPath;
@@ -18,22 +19,17 @@ function getSvelteKitPath() {
     return resolve("node_modules", "@unding", "studio");
 }
 
-async function createSvelteKitChildProcess(command, params, options = { stdout: true, stderr: true }) {
+async function createSvelteKitChildProcess(...args) {
     try {
-        const { stdout, stderr } = await execa(command, params, {
+        const { stdout, stderr } = await execa(...args, {
             cwd: getSvelteKitPath(),
             env: {
                 PROCESS_CWD: process.cwd()
             }
         });
 
-        if (options?.stdout) {
-            stdout.pipe(process.stdout);
-        }
-
-        if (options?.stderr) {
-            stderr.pipe(process.stderr);
-        }
+        stdout.pipe(process.stdout);
+        stderr.pipe(process.stderr);
     } catch (error) {
         console.log(error);
     }
@@ -49,15 +45,21 @@ export async function start() {
 }
 
 export async function dev() {
-    await createSvelteKitChildProcess('npm', ['run', 'dev']);
+    const spinner = ora('Starting dev-server');
+
+    spinner.start();
+    spinner.text = `Dev-sever started on http://localhost:5173`;
+    spinner.succeed();
+
+    await createSvelteKitChildProcess('pnpm', ['dev']);
 }
 
-export async function build(options) {
+export async function build() {
     const spinner = ora('Building @unding/studio');
 
     spinner.start();
 
-    await createSvelteKitChildProcess('npm', ['run', 'build'], options);
+    await createSvelteKitChildProcess('pnpm', ['build']);
 
     spinner.succeed();
 }
