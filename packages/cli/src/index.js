@@ -40,18 +40,11 @@ async function createSvelteKitChildProcess(command, params, options = { stdout: 
 }
 
 export async function start() {
-    const spinner = ora('Building @unding/studio');
-
-    spinner.start();
-
-    await build({ stdout: false });
-
-    spinner.text = 'Starting server';
+    const spinner = ora('Starting server');
 
     const port = await startServer();
 
     spinner.text = `Sever started on http://localhost:${port}`;
-
     spinner.succeed();
 }
 
@@ -60,5 +53,11 @@ export async function dev() {
 }
 
 export async function build(options) {
+    const spinner = ora('Building @unding/studio');
+
+    spinner.start();
+
     await createSvelteKitChildProcess('npm', ['run', 'build'], options);
+
+    spinner.succeed();
 }
