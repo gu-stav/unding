@@ -22,6 +22,10 @@ async function authorization({ event, resolve }) {
 
 const loadConfig = async ({ event, resolve }) => {
   event.locals.config = userConfig.studio();
+
+  // TODO: pass down user for access control
+  event.locals.schema = userConfig.schema();
+
   return await resolve(event);
 };
 

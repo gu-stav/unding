@@ -7,8 +7,8 @@
     <SubNavigation.Group title="Content-Types">
         {#each Object.values($page.data.schema) as contentType}
             <SubNavigation.Item
-                href="/studio/content-types/{contentType.uid}"
-                isActive={$page.params.content_type_id == contentType.uid}>
+                href="/studio/content-types/{contentType.name.plural}"
+                isActive={$page.params.content_type_id == contentType.name.plural}>
                 {contentType.name.display}
             </SubNavigation.Item>
         {/each}
