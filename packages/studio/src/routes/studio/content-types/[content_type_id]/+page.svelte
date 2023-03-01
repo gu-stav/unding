@@ -6,12 +6,12 @@
 
 <Header>
     <svelte:fragment slot="title">
-        Document
+        {$page.data.currentSchema.name.display}
     </svelte:fragment>
 
     <svelte:fragment slot="action">
         <Button as="a" href="/studio/content-types/1/create">
-            + Create document
+            + Create {$page.data.currentSchema.name.display}
         </Button>
     </svelte:fragment>
 </Header>
@@ -20,13 +20,11 @@
     <div class="flex flex-col">
         <DataTable>
             <DataTable.Header>
-                <DataTable.HeaderCell>
-                    id
-                </DataTable.HeaderCell>
-
-                <DataTable.HeaderCell>
-                    title
-                </DataTable.HeaderCell>
+                {#each Object.keys($page.data.currentSchema.attributes) as attribute}
+                    <DataTable.HeaderCell>
+                        {attribute}
+                    </DataTable.HeaderCell>
+                {/each}
 
                 <DataTable.HeaderCell />
             </DataTable.Header>
@@ -34,16 +32,14 @@
             <DataTable.Body>
                 {#each $page.data.documents as document}
                     <DataTable.Row>
-                        <DataTable.Cell>
-                            {document.id}
-                        </DataTable.Cell>
+                        {#each Object.keys($page.data.currentSchema.attributes) as attribute}
+                            <DataTable.Cell>
+                                {document?.[attribute] ?? '-'}
+                            </DataTable.Cell>
+                        {/each}
 
                         <DataTable.Cell>
-                            {document.title}
-                        </DataTable.Cell>
-
-                        <DataTable.Cell>
-                            <a href="/studio/content-types/{document.contentTypeId}/{document.id}/">Edit</a>
+                            <a href="/studio/content-types/{document.contentTypeId}/{document.uid}/">Edit</a>
                         </DataTable.Cell>
                     </DataTable.Row>
                 {/each}

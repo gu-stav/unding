@@ -5,11 +5,11 @@
 
 <SubNavigation>
     <SubNavigation.Group title="Content-Types">
-        {#each $page.data.contentTypes as contentType}
+        {#each Object.values($page.data.schema) as contentType}
             <SubNavigation.Item
-                href="/studio/content-types/{contentType.id}"
-                isActive={$page.params.content_type_id == contentType.id}>
-                {contentType.name}
+                href="/studio/content-types/{contentType.uid}"
+                isActive={$page.params.content_type_id == contentType.uid}>
+                {contentType.name.display}
             </SubNavigation.Item>
         {/each}
     </SubNavigation.Group>
