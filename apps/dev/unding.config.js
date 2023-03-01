@@ -24,6 +24,10 @@ export const schema = () => ([
                 type: 'text'
             },
 
+            readers: {
+                type: 'number'
+            },
+
             body: {
                 type: 'richtext'
             }
