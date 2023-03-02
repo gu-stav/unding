@@ -1,20 +1,27 @@
 <script>
     import { page } from "$app/stores";
-    import { Header, DataTable } from '$lib/studio/components';
-    import { Button } from '@unding/ui';
+    import { Header, ComposableComponent, DataTable } from '$lib/studio/components';
+    import { components } from '$lib/shared/stores/components';
+    import { Button, Input } from '@unding/ui';
 </script>
 
-<Header>
-    <svelte:fragment slot="title">
-        {$page.data.contentType.name.display}
-    </svelte:fragment>
+<ComposableComponent component={$components.Header} inputName="bla">
+    <Header>
+        <svelte:fragment slot="title">
+            {$page.data.contentType.name.display}
+        </svelte:fragment>
 
-    <svelte:fragment slot="action">
-        <Button as="a" href="/studio/content-types/{$page.params.content_type_id}/create">
-            + Create {$page.data.contentType.name.display}
-        </Button>
-    </svelte:fragment>
-</Header>
+        <svelte:fragment slot="action">
+            <Button as="a" href="/studio/content-types/{$page.params.content_type_id}/create">
+                + Create {$page.data.contentType.name.display}
+            </Button>
+        </svelte:fragment>
+    </Header>
+</ComposableComponent>
+
+<form method="POST" action="?/search">
+    <Input name="term" />
+</form>
 
 <div class="flex flex-col">
     <div class="flex flex-col">

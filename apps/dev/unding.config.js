@@ -1,17 +1,15 @@
 import GitHub from "@auth/core/providers/github";
 
-export const studio = () => ({
-    auth: {
-        providers: [
-            GitHub({
-                clientId: process.env.GITHUB_ID,
-                clientSecret: process.env.GITHUB_SECRET
-            })
-        ]
-    }
-})
+export const auth = () => ({
+    providers: [
+        GitHub({
+            clientId: process.env.GITHUB_ID,
+            clientSecret: process.env.GITHUB_SECRET
+        })
+    ]
+});
 
-export const schema = () => ([
+export const schema = [
     {
         name: {
             singular: 'article',
@@ -84,4 +82,4 @@ export const schema = () => ([
             ]
         }
     }
-])
+];

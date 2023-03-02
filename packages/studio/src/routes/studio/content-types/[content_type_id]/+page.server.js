@@ -6,3 +6,9 @@ export async function load({ locals, params, parent }) {
         contentType
     }
 }
+
+export const actions = {
+    search: async() => {
+        // TODO
+    }
+}
