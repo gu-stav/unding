@@ -5,6 +5,7 @@
     export let name;
     export let type;
     export let description;
+    export let error;
 </script>
 
 {#if ['text', 'number', 'email'].includes(type)}
@@ -17,9 +18,11 @@
             {description ?? ''}
         </svelte:fragment>
 
-        <svelte:fragment slot="field">
-            <Input type={type} name={name} {...$$restProps} />
+        <svelte:fragment slot="error">
+            {error ?? ''}
         </svelte:fragment>
+
+        <Input type={type} name={name} slot="field" error={error} {...$$restProps} />
     </Field>
 {:else if type === 'checkbox'}
     <Checkbox name={name} {...$$restProps}>

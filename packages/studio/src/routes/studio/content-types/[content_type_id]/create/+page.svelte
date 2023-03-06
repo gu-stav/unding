@@ -18,7 +18,7 @@
         </svelte:fragment>
     </Header>
 
-    <AttributeLayout.Root class="p-3">
+    <AttributeLayout.Root>
         {#each $page.data.layout as row}
             <AttributeLayout.Row>
                 {#each row as column}

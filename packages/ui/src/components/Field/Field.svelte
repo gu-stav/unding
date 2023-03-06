@@ -1,5 +1,6 @@
 <script>
     import Description from './Description.svelte';
+    import Error from './Error.svelte';
     import Label from './Label.svelte';
 
     export let name;
@@ -13,6 +14,10 @@
     <Description>
         <slot name="description" />
     </Description>
+
+    <Error>
+        <slot name="error" />
+    </Error>
 
     <slot name="field" />
 </div>
