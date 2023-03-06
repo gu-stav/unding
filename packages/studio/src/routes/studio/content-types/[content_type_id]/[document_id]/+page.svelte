@@ -1,11 +1,12 @@
 <script>
+    import { enhance } from '$app/forms';
     import { page } from "$app/stores";
     import paneStore from '$lib/studio/stores/panes';
     import { Header, InputSwitch, Panes, AttributeLayout } from '$lib/studio/components';
     import { Button } from '@unding/ui';
 </script>
 
-<form method="GET">
+<form method="POST" action="?/edit" use:enhance>
     <Header>
         <svelte:fragment slot="title">
             Edit Document
@@ -35,8 +36,11 @@
                             {#each $page.data.layout as row}
                                 <AttributeLayout.Row>
                                     {#each row as column}
+                                    {@const name = column.name}
+                                    {@const field = $page.data.contentType.attributes[column.name]}
+
                                         <AttributeLayout.Column colSpan={column.width}>
-                                            <InputSwitch type={$page.data.contentType.attributes[column.name].type} label={column.name} name={column.name} />
+                                            <InputSwitch type={field.type} value={$page.data.document?.[name]} label={name} name={name} description={field.description} disabled={!!field.readOnly} />
                                         </AttributeLayout.Column>
                                     {/each}
                                 </AttributeLayout.Row>

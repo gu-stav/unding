@@ -1,3 +1,111 @@
+const FIXTURE = [
+    {
+        uid: 1,
+        title: 'A document',
+        readers: 10
+    },
+
+    {
+        uid: 2,
+        title: 'My other document',
+    },
+
+    {
+        uid: 3,
+        title: 'This works like a charm',
+    },
+
+    {
+        uid: 4,
+        title: 'My document',
+    },
+
+    {
+        uid: 5,
+        title: 'Any other document',
+    },
+
+    {
+        uid: 6,
+        title: 'This works like a charm',
+    },
+
+    {
+        uid: 7,
+        title: 'My document',
+    },
+
+    {
+        uid: 8,
+        title: 'My other document',
+    },
+
+    {
+        uid: 9,
+        title: 'This works like a charm',
+    },
+
+    {
+        uid: 10,
+        title: 'My document',
+    },
+
+    {
+        uid: 11,
+        title: 'My other document',
+    },
+
+    {
+        uid: 12,
+        title: 'This works like a charm',
+    },
+
+    {
+        uid: 13,
+        title: 'Blogpost document',
+    },
+
+    {
+        uid: 14,
+        title: 'My other document',
+    },
+
+    {
+        uid: 15,
+        title: 'This works like a charm',
+    },
+
+    {
+        uid: 16,
+        title: 'My document',
+    },
+
+    {
+        uid: 17,
+        title: 'My other document',
+    },
+
+    {
+        uid: 18,
+        title: 'This works like a charm',
+    },
+
+    {
+        uid: 19,
+        title: 'My document',
+    },
+
+    {
+        uid: 20,
+        title: 'My other document',
+    },
+
+    {
+        uid: 21,
+        title: 'This works like a charm',
+    },
+];
+
 export default {
     name: {
         singular: 'article',
@@ -40,111 +148,10 @@ export default {
     // TODO: Nest in actions: create, read, update, delete?
     // TODO: is this the integration point between an sdk and capi or should this be left as is?
     async load(filter) {
-        return [
-            {
-                uid: 1,
-                title: 'A document',
-            },
+        if (filter?.where?.uid) {
+            return FIXTURE.find(document => document.uid == filter.where.uid);
+        }
 
-            {
-                uid: 2,
-                title: 'My other document',
-            },
-
-            {
-                uid: 3,
-                title: 'This works like a charm',
-            },
-
-            {
-                uid: 1,
-                title: 'My document',
-            },
-
-            {
-                uid: 2,
-                title: 'Any other document',
-            },
-
-            {
-                uid: 3,
-                title: 'This works like a charm',
-            },
-
-            {
-                uid: 1,
-                title: 'My document',
-            },
-
-            {
-                uid: 2,
-                title: 'My other document',
-            },
-
-            {
-                uid: 3,
-                title: 'This works like a charm',
-            },
-
-            {
-                uid: 1,
-                title: 'My document',
-            },
-
-            {
-                uid: 2,
-                title: 'My other document',
-            },
-
-            {
-                uid: 3,
-                title: 'This works like a charm',
-            },
-
-            {
-                uid: 1,
-                title: 'Blogpost document',
-            },
-
-            {
-                uid: 2,
-                title: 'My other document',
-            },
-
-            {
-                uid: 3,
-                title: 'This works like a charm',
-            },
-
-            {
-                uid: 1,
-                title: 'My document',
-            },
-
-            {
-                uid: 2,
-                title: 'My other document',
-            },
-
-            {
-                uid: 3,
-                title: 'This works like a charm',
-            },
-
-            {
-                uid: 1,
-                title: 'My document',
-            },
-
-            {
-                uid: 2,
-                title: 'My other document',
-            },
-
-            {
-                uid: 3,
-                title: 'This works like a charm',
-            },
-        ]
+        return FIXTURE;
     }
 };

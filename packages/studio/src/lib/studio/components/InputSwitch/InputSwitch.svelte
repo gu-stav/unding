@@ -14,7 +14,7 @@
         </svelte:fragment>
 
         <svelte:fragment slot="description">
-            {description}
+            {description ?? ''}
         </svelte:fragment>
 
         <svelte:fragment slot="field">

@@ -1,10 +1,11 @@
 <script>
+    import { enhance } from '$app/forms';
     import { page } from "$app/stores";
     import { Header, InputSwitch, AttributeLayout } from '$lib/studio/components';
     import { Button } from '@unding/ui';
 </script>
 
-<form method="POST" action="?/create">
+<form method="POST" action="?/create" use:enhance>
     <Header>
         <svelte:fragment slot="title">
             Create {$page.data.contentType.name.display}
