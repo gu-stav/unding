@@ -52,7 +52,7 @@
             </svelte:fragment>
 
             <form method="POST" action="?/search" slot="search" class="flex-grow">
-                <Input name="term" />
+                <Input name="term" placeholder="Search" />
             </form>
         </AppHeader>
     </svelte:fragment>

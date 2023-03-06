@@ -3,7 +3,7 @@
 
     <slot name="sub-navigation" />
 
-    <div class="flex flex-row h-full">
+    <div class="flex flex-row grow max-h-full">
         <slot />
     </div>
 </div>

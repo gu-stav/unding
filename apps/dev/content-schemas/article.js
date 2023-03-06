@@ -10,7 +10,7 @@ export default {
             // TODO:
             // how to do i18n?
             label: 'Title',
-            description: '',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.',
             readOnly: false,
             type: 'text',
 

@@ -15,6 +15,6 @@
     </SubNavigation.Group>
 </SubNavigation>
 
-<div class="flex flex-col grow">
+<div class="flex flex-col grow max-h-full">
     <slot />
 </div>

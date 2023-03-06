@@ -1,4 +1,5 @@
 export { default as ComposableComponent } from './ComposableComponent';
+export { default as AttributeValue } from './AttributeValue';
 export { default as AttributeLayout } from './AttributeLayout';
 export { default as Header } from './Header';
 export { default as InputSwitch } from './InputSwitch';

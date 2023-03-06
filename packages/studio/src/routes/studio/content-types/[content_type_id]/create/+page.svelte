@@ -24,7 +24,7 @@
                     {@const name = column.name}
                     {@const field = $page.data.contentType.attributes[column.name]}
                     <AttributeLayout.Column colSpan={column.width}>
-                        <InputSwitch type={field.type} label={name} name={name} disabled={!!field.readOnly} />
+                        <InputSwitch type={field.type} label={name} name={name} description={field.description} disabled={!!field.readOnly} />
                     </AttributeLayout.Column>
                 {/each}
             </AttributeLayout.Row>
