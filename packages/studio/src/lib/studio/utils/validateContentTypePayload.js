@@ -25,7 +25,6 @@ function buildZodSchema(contentType) {
 
 export function validateContentTypePayload(payload, contentType) {
     const zodSchema = buildZodSchema(contentType);
-
     const result = zodSchema.safeParse(payload);
 
     if (!result.success) {

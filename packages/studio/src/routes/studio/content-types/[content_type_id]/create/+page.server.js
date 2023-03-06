@@ -14,10 +14,10 @@ export const actions = {
     create: async ({ locals, params, request }) => {
       const { load: loadContentType, ...contentType } = locals.schema.find(contentType => contentType.name.plural === params.content_type_id);
       const input = serializeFormData(await request.formData());
-      const validation = validateContentTypePayload(input, contentType);
+      const errors = validateContentTypePayload(input, contentType);
 
-      if(validation.length > 0) {
-        return fail(400, { input, validation });
+      if(errors.length > 0) {
+        return fail(400, { input, errors });
       }
 
       return { input };

@@ -7,11 +7,11 @@
     export let form;
 
     function findErrorsForField(name) {
-        if (!form?.validation) {
+        if (!form?.errors) {
             return null;
         }
 
-        const errors = form.validation.reduce((acc, error) => {
+        const errors = form.errors.reduce((acc, error) => {
             if (error.path.includes(name)) {
                 acc.push(error);
             }
