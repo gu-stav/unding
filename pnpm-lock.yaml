@@ -32,10 +32,10 @@ importers:
 
   packages/studio:
     specifiers:
-      '@auth/core': ^0.5.0
-      '@auth/sveltekit': ^0.2.2
-      '@sveltejs/adapter-node': ^1.2.0
-      '@sveltejs/kit': ^1.9.1
+      '@auth/core': ^0.5.1
+      '@auth/sveltekit': ^0.3.0
+      '@sveltejs/adapter-node': ^1.2.1
+      '@sveltejs/kit': ^1.10.0
       '@unding/ui': workspace:*
       autoprefixer: ^10.4.13
       express: ^4.18.2
@@ -45,10 +45,10 @@ importers:
       vite: ^4.1.4
       zod: ^3.21.2
     dependencies:
-      '@auth/core': 0.5.0
-      '@auth/sveltekit': 0.2.2_4brjpbycjlbuuteyhagri3gdbm
-      '@sveltejs/adapter-node': 1.2.0_@sveltejs+kit@1.9.1
-      '@sveltejs/kit': 1.9.1_svelte@3.55.1+vite@4.1.4
+      '@auth/core': 0.5.1
+      '@auth/sveltekit': 0.3.0_nbkxm6775dsnyd2fz5a5r4uvyi
+      '@sveltejs/adapter-node': 1.2.1_@sveltejs+kit@1.10.0
+      '@sveltejs/kit': 1.10.0_svelte@3.55.1+vite@4.1.4
       '@unding/ui': link:../ui
       autoprefixer: 10.4.13_postcss@8.4.21
       express: 4.18.2
@@ -82,8 +82,8 @@ packages:
       preact-render-to-string: 5.2.3_preact@10.11.3
     dev: false
 
-  /@auth/core/0.5.0:
-    resolution: {integrity: sha512-NZu+H1rfYPewBDelZ4nZn7Vd2i6kVSUZQAcrQtEYylbSVVpVglcAfnHDq0FsIFXN1czQk13qdmm+CbIEr/C+iA==}
+  /@auth/core/0.5.1:
+    resolution: {integrity: sha512-t9z8F7dkuVceKWBmMy1fd2t6H+vfRju/YJ1lm+6RnJ7pNEvX5qMR874wg0+cYbWvyZazLi8fFK/FA6I3D5sSkA==}
     peerDependencies:
       nodemailer: ^6.8.0
     peerDependenciesMeta:
@@ -98,14 +98,14 @@ packages:
       preact-render-to-string: 5.2.3_preact@10.11.3
     dev: false
 
-  /@auth/sveltekit/0.2.2_4brjpbycjlbuuteyhagri3gdbm:
-    resolution: {integrity: sha512-8PL1120J22RrmsGu8VXTeUvTldSNRqvs/hhEsx9DYswdS5o4umhXsJI5JDbBS3hzpuq7i4LgVEOueW7zQgn9dg==}
+  /@auth/sveltekit/0.3.0_nbkxm6775dsnyd2fz5a5r4uvyi:
+    resolution: {integrity: sha512-J9uwaKadzPaQMYec9CYpa9WAjV5EIMEhj4vTuJH6HTp2FJOOJQB5t19WqWv9rYzBVm2rBTPPplQXPI5UKOvg4Q==}
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
       svelte: ^3.54.0
     dependencies:
-      '@auth/core': 0.4.0
-      '@sveltejs/kit': 1.9.1_svelte@3.55.1+vite@4.1.4
+      '@auth/core': 0.5.1
+      '@sveltejs/kit': 1.10.0_svelte@3.55.1+vite@4.1.4
       svelte: 3.55.1
     transitivePeerDependencies:
       - nodemailer
@@ -410,20 +410,20 @@ packages:
       rollup: 3.15.0
     dev: false
 
-  /@sveltejs/adapter-node/1.2.0_@sveltejs+kit@1.9.1:
-    resolution: {integrity: sha512-j0nxkrNZ4zBkOIOtqHUET5l8qvcFo64xNL2xv8F1QICkz746o5DVCGaJEPC3B2X2fTklXExxe80yXZhf38p6zg==}
+  /@sveltejs/adapter-node/1.2.1_@sveltejs+kit@1.10.0:
+    resolution: {integrity: sha512-mEGDCaZVU3qvFdUI8CMKv+BSzpBYpTpcx85u8bfJ+vcv57pu4UXjZg7ivOoxWZdunUeqq4oEyE+kHmlgBRAalg==}
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
     dependencies:
       '@rollup/plugin-commonjs': 24.0.1_rollup@3.15.0
       '@rollup/plugin-json': 6.0.0_rollup@3.15.0
       '@rollup/plugin-node-resolve': 15.0.1_rollup@3.15.0
-      '@sveltejs/kit': 1.9.1_svelte@3.55.1+vite@4.1.4
+      '@sveltejs/kit': 1.10.0_svelte@3.55.1+vite@4.1.4
       rollup: 3.15.0
     dev: false
 
-  /@sveltejs/kit/1.9.1_svelte@3.55.1+vite@4.1.4:
-    resolution: {integrity: sha512-SC2pTnaloAL+6744tWl1/b1zGAhZX2zmgmUmKV4Y6nx/y5gP6+MTzY6SC74PYUWSlOPumi8wZ40hQ2RExCFuhg==}
+  /@sveltejs/kit/1.10.0_svelte@3.55.1+vite@4.1.4:
+    resolution: {integrity: sha512-0P35zHrByfbF3Ym3RdQL+RvzgsCDSyO3imSwuZ67XAD5HoCQFF3a8Mhh0V3sObz3rc5aJd4Qn82UpAihJqZ6gQ==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
     requiresBuild: true
