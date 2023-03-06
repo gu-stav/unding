@@ -1,3 +1,4 @@
+import { fail } from '@sveltejs/kit';
 import { createAttributeLayout, serializeFormData, validateContentTypePayload } from '$lib/studio/utils';
 
 export async function load({ locals, params }) {
@@ -11,11 +12,14 @@ export async function load({ locals, params }) {
 
 export const actions = {
     create: async ({ locals, params, request }) => {
+      const { load: loadContentType, ...contentType } = locals.schema.find(contentType => contentType.name.plural === params.content_type_id);
       const input = serializeFormData(await request.formData());
-      const validation = validateContentTypePayload(input, locals.schema);
+      const validation = validateContentTypePayload(input, contentType);
 
-      console.log({ input, validation });
+      if(validation.length > 0) {
+        return fail(400, { input, validation });
+      }
 
-      return { input, validation };
+      return { input };
     }
 };

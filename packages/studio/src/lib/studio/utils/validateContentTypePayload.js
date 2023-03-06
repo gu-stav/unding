@@ -1,9 +1,36 @@
-function validateAttribute(attribute, schema) {
-    
+import { z } from "zod";
+
+const attributeTypeZodPrimitiveMapping = {
+    'text': 'string',
+    'number': 'number'
+};
+
+function buildZodSchema(contentType) {
+    let Schema = z.object();
+
+    contentType.attributes.forEach(attribute => {
+        const FieldSchema = z[attributeTypeZodPrimitiveMapping[attribute.type]]();
+
+        if (!attribute.required) {
+            FieldSchema.nullable();
+        }
+
+        Schema = Schema.extend({
+            [attribute.name]: FieldSchema
+        });
+    })
+
+    return Schema;
 }
 
 export function validateContentTypePayload(payload, contentType) {
-    console.log(payload);
+    const zodSchema = buildZodSchema(contentType);
 
-    return true;
+    const result = zodSchema.safeParse(payload);
+
+    if (!result.success) {
+        return result.error.issues;
+    }
+
+    return [];
 }

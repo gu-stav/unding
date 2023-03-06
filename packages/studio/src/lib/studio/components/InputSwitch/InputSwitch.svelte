@@ -5,6 +5,7 @@
     export let name;
     export let type;
     export let description;
+    // TODO: rename error to errors
     export let error;
     export let required;
 </script>
@@ -26,7 +27,11 @@
         </svelte:fragment>
 
         <svelte:fragment slot="error">
-            {error ?? ''}
+            {#if Array.isArray(error)}
+                {#each error as zodError}
+                    {zodError.message}
+                {/each}
+            {/if}
         </svelte:fragment>
 
         <Input type={type} name={name} slot="field" error={error} {...$$restProps} />
