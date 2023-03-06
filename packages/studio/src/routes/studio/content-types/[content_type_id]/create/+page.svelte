@@ -1,6 +1,6 @@
 <script>
     import { page } from "$app/stores";
-    import { Header, InputSwitch } from '$lib/studio/components';
+    import { Header, InputSwitch, AttributeLayout } from '$lib/studio/components';
     import { Button } from '@unding/ui';
 </script>
 
@@ -17,7 +17,17 @@
         </svelte:fragment>
     </Header>
 
-    {#each Object.entries($page.data.contentType.attributes) as [name, attribute]}
-        <InputSwitch type={attribute.type} label={name} name />
-    {/each}
+    <AttributeLayout.Root class="p-3">
+        {#each $page.data.layout as row}
+            <AttributeLayout.Row>
+                {#each row as column}
+                    {@const name = column.name}
+                    {@const field = $page.data.contentType.attributes[column.name]}
+                    <AttributeLayout.Column colSpan={column.width}>
+                        <InputSwitch type={field.type} label={name} name={name} disabled={!!field.readOnly} />
+                    </AttributeLayout.Column>
+                {/each}
+            </AttributeLayout.Row>
+        {/each}
+    </AttributeLayout.Root>
 </form>

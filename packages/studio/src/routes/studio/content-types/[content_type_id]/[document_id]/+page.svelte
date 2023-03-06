@@ -1,7 +1,7 @@
 <script>
     import { page } from "$app/stores";
     import paneStore from '$lib/studio/stores/panes';
-    import { Header } from '$lib/studio/components';
+    import { Header, InputSwitch, Panes, AttributeLayout } from '$lib/studio/components';
     import { Button } from '@unding/ui';
 </script>
 
@@ -23,22 +23,31 @@
             Swap panes
         </button>
 
-        <div class="flex">
+        <Panes.Root>
             {#each $paneStore.panes as pane}
-                <div class="flex">
+                <Panes.Pane>
                     <button on:click={() => paneStore.close(pane.type)}>
                         Close pane {pane.type}
                     </button>
 
                     {#if pane.type === 'edit'}
-                        <h2>Document</h2>
-                        [Document {$page.params.document_id}]
+                        <AttributeLayout.Root>
+                            {#each $page.data.layout as row}
+                                <AttributeLayout.Row>
+                                    {#each row as column}
+                                        <AttributeLayout.Column colSpan={column.width}>
+                                            <InputSwitch type={$page.data.contentType.attributes[column.name].type} label={column.name} name={column.name} />
+                                        </AttributeLayout.Column>
+                                    {/each}
+                                </AttributeLayout.Row>
+                            {/each}
+                        </AttributeLayout.Root>
                     {:else if pane.type === 'preview'}
                         <h2>Preview</h2>
                         [{$page.params.document_id}]
                     {/if}
-                </div>
+                </Panes.Pane>
             {/each}
-        </div>
+        </Panes.Root>
     </div>
 </form>

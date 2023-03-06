@@ -4,7 +4,7 @@
 </script>
 
 <li>
-    <a href={href} class:bg-neutral-200={isActive} class="block p-2 rounded">
+    <a href={href} class:bg-gray-700={isActive} class="block px-2 py-1 rounded hover:bg-gray-700">
         <slot />
     </a>
 </li>

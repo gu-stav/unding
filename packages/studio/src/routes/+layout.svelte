@@ -2,9 +2,10 @@
     import "../app.css";
 
     import { page } from "$app/stores";
-    import { Navigation } from "$lib/shared/components";
+    import { AppLayout, AppHeader } from "$lib/shared/components";
+    import { Input, Menu } from '@unding/ui';
 
-    const NAVIGATION_GROUPS = [
+    const GROUPS = [
         {
             items: [
                 {
@@ -21,26 +22,40 @@
     ];
 </script>
 
-<main class="flex">
-    <Navigation user={$page.data.session?.user}>
-        {#each NAVIGATION_GROUPS as group}
-            <Navigation.Group title={group.title}>
-                {#each group.items as item}
-                    <Navigation.Item href={item.href} isActive={!!$page.route.id?.startsWith(item.href)}>
-                        {item.label}
-                    </Navigation.Item>
-                {/each}
-            </Navigation.Group>
-        {/each}
+<AppLayout>
+    <svelte:fragment slot="header">
+        <AppHeader>
+            {#each GROUPS as group}
+                <AppHeader.Group title={group.title}>
+                    {#each group.items as item}
+                        <AppHeader.Item href={item.href} isActive={!!$page.route.id?.startsWith(item.href)}>
+                            {item.label}
+                        </AppHeader.Item>
+                    {/each}
+                </AppHeader.Group>
+            {/each}
 
-        {#if $page.data.session?.user}
-            <Navigation.Footer>
-                <Navigation.Item>
-                    {$page.data.session.user.name}
-                </Navigation.Item>
-            </Navigation.Footer>
-        {/if}
-    </Navigation>
+            <svelte:fragment slot="user">
+                {#if $page.data.session?.user}
+                    <AppHeader.Footer>
+                        <Menu>
+                            <svelte:fragment slot="trigger">
+                                {$page.data.session.user.name}
+                            </svelte:fragment>
+
+                            <svelte:fragment slot="portal">
+                                <a href="/auth/signout">Logout</a>
+                            </svelte:fragment>
+                        </Menu>
+                    </AppHeader.Footer>
+                {/if}
+            </svelte:fragment>
+
+            <form method="POST" action="?/search" slot="search" class="flex-grow">
+                <Input name="term" />
+            </form>
+        </AppHeader>
+    </svelte:fragment>
 
     <slot />
-</main>
+</AppLayout>

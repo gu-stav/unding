@@ -1,4 +1,11 @@
-import GitHub from "@auth/core/providers/github";
+import GitHub from '@auth/core/providers/github';
+
+// content schemas
+import article from './content-schemas/article';
+import pages from './content-schemas/pages';
+
+// component overwrites
+import NewHeader from './NewHeader.svelte';
 
 export const auth = () => ({
     providers: [
@@ -9,77 +16,11 @@ export const auth = () => ({
     ]
 });
 
+export const components = {
+    Header: NewHeader
+};
+
 export const schema = [
-    {
-        name: {
-            singular: 'article',
-            plural: 'articles',
-            display: 'Articles'
-        },
-
-        attributes: {
-            title: {
-                type: 'text'
-            },
-
-            readers: {
-                type: 'number'
-            },
-
-            body: {
-                type: 'richtext'
-            }
-        },
-
-        async load() {
-            return [
-                {
-                    uid: 1,
-                    title: 'My document',
-                },
-
-                {
-                    uid: 2,
-                    title: 'My other document',
-                },
-
-                {
-                    uid: 3,
-                    title: 'This works like a charm',
-                },
-            ]
-        }
-    },
-
-    {
-        name: {
-            singular: 'page',
-            plural: 'pages',
-            display: 'Pages'
-        },
-
-        attributes: {
-            title: {
-                type: 'text'
-            },
-
-            body: {
-                type: 'richtext'
-            }
-        },
-
-        async load() {
-            return [
-                {
-                    uid: 1,
-                    title: 'My page',
-                },
-
-                {
-                    uid: 2,
-                    title: 'My other page',
-                },
-            ]
-        }
-    }
+    article,
+    pages
 ];

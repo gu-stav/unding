@@ -1,13 +1,15 @@
 <script>
+    import ToggleButton from "./ToggleButton.svelte";
+
     let isExpanded = true;
 </script>
 
-<nav class="flex flex-direction-col gap-4 p-3 h-screen bg-neutral-50 relative">
-    <button type="button" class="absolute right-0" on:click={() => {
+<nav class:p-3={isExpanded} class="flex flex-direction-col gap-4 h-full bg-gray-100 text-gray-800 relative shrink-0 border-gray-200 border-r-[1px]">
+    <ToggleButton on:click={() => {
         isExpanded = !isExpanded;
     }}>
         Toggle
-    </button>
+    </ToggleButton>
 
     {#if isExpanded}
         <slot />

@@ -9,17 +9,15 @@
 {#if ['text', 'number', 'email'].includes(type)}
     <Field>
         <svelte:fragment slot="label">
-            <Field.Label>
-                {label}
-            </Field.Label>
+            {label}
         </svelte:fragment>
 
         <svelte:fragment slot="field">
-            <Input type={type} name={name} />
+            <Input type={type} name={name} {...$$restProps} />
         </svelte:fragment>
     </Field>
 {:else if type === 'checkbox'}
-    <Checkbox name={name}>
+    <Checkbox name={name} {...$$restProps}>
         {label}
     </Checkbox>
 {/if}

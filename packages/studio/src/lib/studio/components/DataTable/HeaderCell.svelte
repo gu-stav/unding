@@ -1,3 +1,3 @@
-<th class="bg-neutral-200 p-3 text-left">
+<th class="p-3 bg-gray-50 text-left border-gray-100 border-b-[1px]">
     <slot />
 </th>
