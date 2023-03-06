@@ -113,13 +113,15 @@ export default {
         display: 'Articles'
     },
 
-    attributes: {
-        title: {
+    attributes: [
+        {
+            name: 'title',
             // TODO:
             // how to do i18n?
             label: 'Title',
             description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.',
             readOnly: false,
+            required: true,
             type: 'text',
 
             // TODO:
@@ -135,15 +137,38 @@ export default {
             width: 6
         },
 
-        readers: {
+        {
+            name: 'readers',
             type: 'number',
             readOnly: true,
         },
 
-        body: {
-            type: 'richtext'
+        {
+            name: 'bla',
+            type: 'number',
+            width: 3
+        },
+
+        {
+            name: 'blubb',
+            description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
+            type: 'number',
+            width: 3
+        },
+
+        {
+            name: 'test',
+            required: true,
+            type: 'number',
+            width: 3
+        },
+
+        {
+            name: 'body',
+            type: 'richtext',
+            width: 12
         }
-    },
+    ],
 
     // TODO: Nest in actions: create, read, update, delete?
     // TODO: is this the integration point between an sdk and capi or should this be left as is?

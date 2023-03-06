@@ -23,11 +23,11 @@
             <AttributeLayout.Row>
                 {#each row as column}
                 {@const name = column.name}
-                {@const field = $page.data.contentType.attributes[column.name]}
+                {@const field = $page.data.contentType.attributes.find(attribute => attribute.name === column.name)}
 
-                    <AttributeLayout.Column colSpan={column.width}>
-                        <InputSwitch type={field.type} value={$page.data.document?.[name]} label={name} name={name} description={field.description} disabled={!!field.readOnly} />
-                    </AttributeLayout.Column>
+                <AttributeLayout.Column colSpan={column.width}>
+                    <InputSwitch value={$page.data.document?.[name]} label={name} name={name} disabled={!!field.readOnly} {...field} />
+                </AttributeLayout.Column>
                 {/each}
             </AttributeLayout.Row>
         {/each}

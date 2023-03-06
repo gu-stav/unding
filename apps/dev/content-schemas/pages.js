@@ -5,15 +5,17 @@ export default {
         display: 'Pages'
     },
 
-    attributes: {
-        title: {
+    attributes: [
+        {
+            name: 'title',
             type: 'text'
         },
 
-        body: {
+        {
+            name: 'body',
             type: 'richtext'
         }
-    },
+    ],
 
     async load() {
         return [

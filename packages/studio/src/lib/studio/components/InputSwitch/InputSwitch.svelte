@@ -1,17 +1,24 @@
 <script>
-    import { Checkbox, Field, Input } from '@unding/ui';
+    import { Checkbox, Chip, Field, Input } from '@unding/ui';
 
     export let label;
     export let name;
     export let type;
     export let description;
     export let error;
+    export let required;
 </script>
 
 {#if ['text', 'number', 'email'].includes(type)}
     <Field name={name}>
         <svelte:fragment slot="label">
             {label}
+
+            {#if required}
+                <Chip>
+                    Required
+                </Chip>
+            {/if}
         </svelte:fragment>
 
         <svelte:fragment slot="description">

@@ -31,12 +31,12 @@
 
 <DataTable>
     <DataTable.Header>
-        {#each Object.keys($page.data.contentType.attributes) as attribute}
+        {#each $page.data.contentType.attributes as attribute}
             <DataTable.HeaderCell>
                 <a href="/studio/content-types/{$page.params.content_type_id}?{appendURLParam('sort', attribute)}" on:click={async () => {
                     // otherwise the page does not call load again
                     await invalidateAll();
-                }}>{attribute}</a>
+                }}>{attribute.name}</a>
             </DataTable.HeaderCell>
         {/each}
 
@@ -46,9 +46,9 @@
     <DataTable.Body>
         {#each $page.data.documents as document}
             <DataTable.Row>
-                {#each Object.keys($page.data.contentType.attributes) as attribute}
+                {#each $page.data.contentType.attributes as attribute}
                     <DataTable.Cell>
-                        <AttributeValue value={document?.[attribute]} type={$page.data.contentType.attributes[attribute].type} />
+                        <AttributeValue value={document?.[attribute.name]} type={attribute.type} />
                     </DataTable.Cell>
                 {/each}
 

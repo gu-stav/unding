@@ -2,7 +2,7 @@ const GRID_COLUMNS = 12;
 const COLUMN_DEFAULT_WIDTH = 6;
 
 export function createAttributeLayout(attributes) {
-    return Object.entries(attributes).reduce((acc, [name, attribute]) => {
+    return attributes.reduce((acc, attribute) => {
         const attributeWidth = attribute?.width ?? COLUMN_DEFAULT_WIDTH;
 
         const lastRow = acc.at(-1);
@@ -10,7 +10,7 @@ export function createAttributeLayout(attributes) {
 
         if (lastRowColumnsWidth + attributeWidth <= GRID_COLUMNS) {
             lastRow.push({
-                name,
+                name: attribute.name,
                 width: attributeWidth
             });
         } else {

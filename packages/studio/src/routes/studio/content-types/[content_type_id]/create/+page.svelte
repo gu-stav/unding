@@ -12,7 +12,7 @@
         </svelte:fragment>
 
         <svelte:fragment slot="action">
-            <Button type="submit" name="submit">
+            <Button type="submit">
                 Save
             </Button>
         </svelte:fragment>
@@ -23,9 +23,10 @@
             <AttributeLayout.Row>
                 {#each row as column}
                     {@const name = column.name}
-                    {@const field = $page.data.contentType.attributes[column.name]}
+                    {@const field = $page.data.contentType.attributes.find(attribute => attribute.name === column.name)}
+
                     <AttributeLayout.Column colSpan={column.width}>
-                        <InputSwitch type={field.type} label={name} name={name} description={field.description} disabled={!!field.readOnly} />
+                        <InputSwitch label={name} name={name} disabled={!!field.readOnly} {...field} />
                     </AttributeLayout.Column>
                 {/each}
             </AttributeLayout.Row>

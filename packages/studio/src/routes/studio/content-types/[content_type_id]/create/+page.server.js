@@ -1,4 +1,4 @@
-import { createAttributeLayout } from '$lib/studio/utils';
+import { createAttributeLayout, serializeFormData, validateContentTypePayload } from '$lib/studio/utils';
 
 export async function load({ locals, params }) {
   const { load: loadContentType, ...contentType } = locals.schema.find(contentType => contentType.name.plural === params.content_type_id);
@@ -10,9 +10,12 @@ export async function load({ locals, params }) {
 }
 
 export const actions = {
-    create: async ({ request }) => {
-      const data = await request.formData();
+    create: async ({ locals, params, request }) => {
+      const input = serializeFormData(await request.formData());
+      const validation = validateContentTypePayload(input, locals.schema);
 
-      return { success: true };
+      console.log({ input, validation });
+
+      return { input, validation };
     }
 };
