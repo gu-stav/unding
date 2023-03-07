@@ -2,18 +2,18 @@ import adapter from '@sveltejs/adapter-node';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import { join } from 'node:path';
 
-const config = {
-	preprocess: vitePreprocess(),
+function defineConfig() {
+	const cwd = process.env.APP_DIR;
 
-	kit: {
-		adapter: adapter({
-			out: join(process.env.PROCESS_CWD, 'build'),
-		}),
-		env: {
-			dir: join(process.env.PROCESS_CWD)
-		},
-        outDir: join(process.env.PROCESS_CWD, '.svelte-kit'),
+	return {
+		preprocess: vitePreprocess(),
+		kit: {
+			adapter: adapter(),
+			env: {
+				dir: join(cwd)
+			},
+		}
 	}
-};
+}
 
-export default config;
+export default defineConfig();

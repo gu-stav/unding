@@ -2,8 +2,8 @@
     "name": "example-studio",
     "private": true,
     "dependencies": {
-        "@sveltejs/kit": "^1.10.0",
         "@auth/core": "^0.4.0",
+        "@sveltejs/kit": "^1.10.0",
         "@unding/cli": "workspace:*",
         "@unding/studio": "workspace:*",
         "svelte": "^3.54.0",

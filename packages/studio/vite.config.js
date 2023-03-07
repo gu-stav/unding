@@ -1,7 +1,7 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
-const cwd = process.env?.PROCESS_CWD ?? process.cwd();
+const cwd = process.env?.APP_DIR ?? process.cwd();
 
 export default defineConfig({
 	resolve: {
