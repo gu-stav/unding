@@ -3,7 +3,7 @@ import { vitePreprocess } from '@sveltejs/kit/vite';
 import { join } from 'node:path';
 
 function defineConfig() {
-	const cwd = process.env.APP_DIR;
+	const cwd = process.env?.APP_DIR ?? process.cwd();
 
 	return {
 		preprocess: vitePreprocess(),

@@ -52,6 +52,8 @@ export async function dev() {
     spinner.text = `Dev-sever started on http://localhost:5173`;
     spinner.succeed();
 
+    process.env.APP_DIR = process.cwd();
+
     await createSvelteKitChildProcess('pnpm', ['dev']);
 }
 

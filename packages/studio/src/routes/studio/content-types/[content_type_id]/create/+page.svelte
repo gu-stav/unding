@@ -1,33 +1,14 @@
 <script>
-    import { enhance } from '$app/forms';
     import { page } from "$app/stores";
     import { Header, InputSwitch, AttributeLayout } from '$lib/studio/components';
     import { Button } from '@unding/ui';
+    import { contentTypeSync } from '$lib/studio/actions/contentTypeSync';
+    import contentType from '$lib/studio/stores/contentType';
 
-    export let form;
-
-    function findErrorsForField(name) {
-        if (!form?.errors) {
-            return null;
-        }
-
-        const errors = form.errors.reduce((acc, error) => {
-            if (error.path.includes(name)) {
-                acc.push(error);
-            }
-
-            return acc;
-        }, []);
-
-        if (errors.length > 0) {
-            return errors;
-        }
-
-        return null;
-    }
+    $: contentType.set($page.data);
 </script>
 
-<form method="POST" action="?/create" use:enhance>
+<form method="POST" action="?/create" use:contentTypeSync={contentType}>
     <Header>
         <svelte:fragment slot="title">
             Create {$page.data.contentType.name.display}
@@ -44,11 +25,10 @@
         {#each $page.data.layout as row}
             <AttributeLayout.Row>
                 {#each row as column}
-                    {@const name = column.name}
-                    {@const field = $page.data.contentType.attributes.find(attribute => attribute.name === column.name)}
+                    {@const field = $contentType.contentType.attributes.find(attribute => attribute.name === column.name)}
 
                     <AttributeLayout.Column colSpan={column.width}>
-                        <InputSwitch label={name} name={name} disabled={!!field.readOnly} {...field} value={form?.[name] ?? field?.value} error={findErrorsForField(name)} />
+                        <InputSwitch {...field} />
                     </AttributeLayout.Column>
                 {/each}
             </AttributeLayout.Row>

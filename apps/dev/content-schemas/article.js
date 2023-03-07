@@ -134,7 +134,7 @@ export default {
             // TODO: the width has nothing to do with the schema, but
             // is more of a studio configuration.
             // https://getkirby.com/docs/reference/panel/fields/layout
-            width: 6
+            width: 12
         },
 
         {
@@ -146,21 +146,21 @@ export default {
         {
             name: 'bla',
             type: 'number',
-            width: 3
+            width: 12
         },
 
         {
             name: 'blubb',
             description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
             type: 'number',
-            width: 3
+            width: 12
         },
 
         {
             name: 'test',
             required: true,
             type: 'number',
-            width: 3
+            width: 12
         },
 
         {
