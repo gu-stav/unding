@@ -1,0 +1,16 @@
+{
+  "name": "@unding/schema",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "main": "./src/index.js",
+  "dependencies": {
+    "zod": "^3.21.2"
+  }
+}

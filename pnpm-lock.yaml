@@ -38,12 +38,19 @@ importers:
     devDependencies:
       '@unding/studio': link:../studio
 
+  packages/schema:
+    specifiers:
+      zod: ^3.21.2
+    dependencies:
+      zod: 3.21.2
+
   packages/studio:
     specifiers:
       '@auth/core': ^0.5.1
       '@auth/sveltekit': ^0.3.0
       '@sveltejs/adapter-node': ^1.2.1
       '@sveltejs/kit': ^1.10.0
+      '@unding/schema': workspace:*
       '@unding/ui': workspace:*
       autoprefixer: ^10.4.13
       express: ^4.18.2
@@ -56,6 +63,7 @@ importers:
       '@auth/core': 0.5.1
       '@auth/sveltekit': 0.3.0_nbkxm6775dsnyd2fz5a5r4uvyi
       '@sveltejs/adapter-node': 1.2.1_@sveltejs+kit@1.10.0
+      '@unding/schema': link:../schema
       '@unding/ui': link:../ui
       autoprefixer: 10.4.13_postcss@8.4.21
       express: 4.18.2

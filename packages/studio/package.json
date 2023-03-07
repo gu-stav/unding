@@ -5,6 +5,7 @@
         "@auth/core": "^0.5.1",
         "@auth/sveltekit": "^0.3.0",
         "@sveltejs/adapter-node": "^1.2.1",
+        "@unding/schema": "workspace:*",
         "@unding/ui": "workspace:*",
         "autoprefixer": "^10.4.13",
         "express": "^4.18.2",

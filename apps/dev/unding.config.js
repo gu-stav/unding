@@ -1,4 +1,5 @@
 import GitHub from '@auth/core/providers/github';
+import { defineSchema } from '@unding/studio';
 
 // content schemas
 import article from './content-schemas/article';
@@ -20,7 +21,7 @@ export const components = {
     Header: NewHeader
 };
 
-export const schema = [
+export const schema = defineSchema([
     article,
     pages
-];
+]);
