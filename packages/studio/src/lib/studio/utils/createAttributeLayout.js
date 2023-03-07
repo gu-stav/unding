@@ -7,14 +7,17 @@ export function createAttributeLayout(attributes) {
 
         const lastRow = acc.at(-1);
         const lastRowColumnsWidth = lastRow.reduce((acc, col) => acc + col?.width ?? 0, 0);
+        const entry = {
+            name: attribute.name,
+            width: attributeWidth
+        };
 
         if (lastRowColumnsWidth + attributeWidth <= GRID_COLUMNS) {
-            lastRow.push({
-                name: attribute.name,
-                width: attributeWidth
-            });
+            lastRow.push(entry);
         } else {
-            acc.push([]);
+            acc.push([
+                entry
+            ]);
         }
 
         return acc;

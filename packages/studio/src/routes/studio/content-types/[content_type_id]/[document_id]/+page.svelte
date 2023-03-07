@@ -15,7 +15,7 @@
         </svelte:fragment>
 
         <svelte:fragment slot="action">
-            <Button type="submit" name="submit">
+            <Button type="submit">
                 Save
             </Button>
         </svelte:fragment>

@@ -22,6 +22,18 @@ function createStore() {
 
             return state;
         }),
+
+        updateValues: (valuesData) => update((state) => {
+            Object.entries(valuesData).forEach(([name, value]) => {
+                const field = state.contentType.attributes.find(attribute => attribute.name === name);
+
+                if (field) {
+                    field.value = value;
+                }
+            })
+
+            return state;
+        })
       };
 }
 

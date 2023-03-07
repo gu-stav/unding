@@ -5,7 +5,8 @@ export function contentTypeSync(node, { contentType }) {
         return async ({ result, update }) => {
           update();
 
-          const { data: { errors } } = result;
-          contentType.setFieldErrors(errors)
+          const { data: { errors, input } } = result;
+          contentType.setFieldErrors(errors);
+          contentType.updateValues(input);
       }}));
 }
