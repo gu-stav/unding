@@ -8,7 +8,7 @@
     $: contentType.set($page.data);
 </script>
 
-<form method="POST" action="?/create" use:contentTypeSync={contentType}>
+<form method="POST" action="?/create" use:contentTypeSync={{ contentType }}>
     <Header>
         <svelte:fragment slot="title">
             Create {$page.data.contentType.name.display}

@@ -1,4 +1,5 @@
-import { createAttributeLayout } from '$lib/studio/utils';
+import { fail } from '@sveltejs/kit';
+import { createAttributeLayout, serializeFormData, validateContentTypePayload } from '$lib/studio/utils';
 
 export async function load({ locals, params }) {
   const { load: loadContentType, ...contentType } = locals.schema.find(contentType => contentType.name.plural === params.content_type_id);
@@ -12,9 +13,15 @@ export async function load({ locals, params }) {
 }
 
 export const actions = {
-  edit: async ({ request }) => {
-    const data = await request.formData();
+  edit: async ({ locals, params, request }) => {
+    const { load: loadContentType, ...contentType } = locals.schema.find(contentType => contentType.name.plural === params.content_type_id);
+      const input = serializeFormData(await request.formData());
+      const errors = validateContentTypePayload(input, contentType);
 
-    return { success: true };
+      if(errors.length > 0) {
+        return fail(400, { input, errors });
+      }
+
+      return { input };
   }
 };

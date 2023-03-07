@@ -13,7 +13,8 @@
 {#if ['text', 'number', 'email'].includes(type)}
     <Field name={name}>
         <svelte:fragment slot="label">
-            {label}
+            <!-- TODO: enforce label -->
+            {label ?? name}
 
             {#if required}
                 <Chip>
