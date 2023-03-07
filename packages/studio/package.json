@@ -1,6 +1,6 @@
 {
     "name": "@unding/studio",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "dependencies": {
         "@auth/core": "^0.5.1",
         "@auth/sveltekit": "^0.3.0",
