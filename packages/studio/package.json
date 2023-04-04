@@ -25,6 +25,10 @@
     "type": "module",
     "main": "./src/index.js",
     "exports": {
+        "./components": {
+            "import": "./src/lib/shared/components/index.js"
+        },
+
         "./hooks": {
             "import": "./src/hooks.server.js"
         },
