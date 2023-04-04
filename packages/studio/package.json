@@ -23,5 +23,14 @@
         "preview": "vite preview"
     },
     "type": "module",
-    "main": "./src/index.js"
+    "main": "./src/index.js",
+    "exports": {
+        ".": {
+            "import": "./src/index.js"
+        },
+
+        "./vite": {
+            "import": "./src/vite.js"
+        }
+    }
 }
