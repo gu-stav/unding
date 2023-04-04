@@ -2,7 +2,7 @@
     import { invalidateAll } from '$app/navigation';
     import { page } from "$app/stores";
     import { AttributeValue, Header, ComposableComponent, DataTable } from '$lib/studio/components';
-    import { Pagination } from '@unding/studio/shared/components';
+    import { Pagination } from '@unding/studio/components';
     import { components } from '$lib/shared/stores/components';
     import { Button } from '@unding/ui';
 

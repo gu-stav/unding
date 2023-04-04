@@ -1,6 +1,6 @@
 <script>
     import { page } from "$app/stores";
-    import { SubNavigation } from '@unding/studio/shared/components';
+    import { SubNavigation } from '@unding/studio/components';
 </script>
 
 <SubNavigation>

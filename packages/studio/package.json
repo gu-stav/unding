@@ -24,19 +24,14 @@
         "svelte": "^3.54.0",
         "vite": "^4.1.4"
     },
-    "scripts": {
-        "dev": "vite dev",
-        "build": "vite build",
-        "preview": "vite preview"
-    },
     "type": "module",
     "exports": {
-        "./shared/components": {
+        "./components": {
             "import": "./src/lib/shared/components/index.js"
         },
 
-        "./studio/components": {
-            "import": "./src/lib/studio/components/index.js"
+        "./shared/components": {
+            "import": "./src/lib/shared/components/index.js"
         },
 
         "./hooks": {
