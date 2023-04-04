@@ -1,6 +1,6 @@
 <script>
     import { page } from "$app/stores";
-    import { Header, InputSwitch, AttributeLayout } from '$lib/studio/components';
+    import { Header, InputSwitch, AttributeLayout } from '@unding/components/studio';
     import { Button } from '@unding/ui';
     import { contentTypeSync } from '$lib/studio/actions/contentTypeSync';
     import contentType from '$lib/studio/stores/contentType';

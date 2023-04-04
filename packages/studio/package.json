@@ -7,11 +7,18 @@
         "@unding/schema": "workspace:*",
         "@unding/ui": "workspace:*",
         "autoprefixer": "^10.4.13",
+        "commander": "^9.2.0",
+        "dotenv": "^16.0.3",
         "express": "^4.18.2",
+        "fs-extra": "^11.1.0",
+        "ora": "^6.1.0",
         "postcss": "^8.4.21",
         "tailwindcss": "^3.2.7",
         "zod": "^3.21.2"
     },
+    "bin": {
+		"unding": "./cli.js"
+	},
     "peerDependencies": {
         "@sveltejs/kit": "^1.10.0",
         "svelte": "^3.54.0",
@@ -23,10 +30,13 @@
         "preview": "vite preview"
     },
     "type": "module",
-    "main": "./src/index.js",
     "exports": {
-        "./components": {
+        "./shared/components": {
             "import": "./src/lib/shared/components/index.js"
+        },
+
+        "./studio/components": {
+            "import": "./src/lib/studio/components/index.js"
         },
 
         "./hooks": {
