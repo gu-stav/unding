@@ -1,7 +1,6 @@
 import { SvelteKitAuth } from "@auth/sveltekit"
 import { sequence } from '@sveltejs/kit/hooks';
 import { redirect } from '@sveltejs/kit';
-import { auth, schema } from 'virtual:unding-config';
 
 async function authorization({ event, resolve }) {
   if (event.url.pathname.startsWith('/studio')) {
@@ -16,6 +15,8 @@ async function authorization({ event, resolve }) {
 }
 
 const loadConfig = async ({ event, resolve }) => {
+  const { auth, schema } = await import('virtual:unding-config');
+
   event.locals.auth = auth();
 
   // TODO: pass down user for access control
@@ -33,4 +34,4 @@ const setupAuthProviders = async (...args) => {
   })(...args);
 }
 
-export const handle = sequence(loadConfig, setupAuthProviders, authorization)
+export const handle = sequence(loadConfig, setupAuthProviders, authorization);
