@@ -18,6 +18,16 @@ function getSvelteKitPath() {
     return resolve("node_modules", "@unding", "studio");
 }
 
+async function linkStudio() {
+    const cwd = process.cwd();
+    const cmsStudioPath = getSvelteKitPath();
+
+    const routesSourceDir = join(cmsStudioPath, 'src', 'routes');
+    const routesTargetDir = join(cwd, 'src', 'routes', 'unding');
+
+    await ensureSymlink(routesSourceDir, routesTargetDir);
+}
+
 export async function start() {
     const spinner = ora('Starting server');
 
@@ -28,13 +38,9 @@ export async function start() {
 }
 
 export async function dev() {
-    const cwd = process.cwd();
-    const cmsStudioPath = getSvelteKitPath();
-
-    const routesSourceDir = join(cmsStudioPath, 'src', 'routes');
-    const routesTargetDir = join(cwd, 'src', 'routes', 'unding');
-
-    await ensureSymlink(routesSourceDir, routesTargetDir);
+    await linkStudio();
 }
 
-export async function build() {}
+export async function build() {
+    await linkStudio();
+}
