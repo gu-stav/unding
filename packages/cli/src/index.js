@@ -3,7 +3,7 @@ import { join, resolve } from 'node:path';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'url';
 import ora from 'ora';
-import { ensureDir, copy } from 'fs-extra';
+import { ensureSymlink } from 'fs-extra';
 
 dotenv.config();
 
@@ -32,10 +32,9 @@ export async function dev() {
     const cmsStudioPath = getSvelteKitPath();
 
     const routesSourceDir = join(cmsStudioPath, 'src', 'routes');
-    const routesTargetDir = join(cwd, 'src', 'routes', 'cms');
+    const routesTargetDir = join(cwd, 'src', 'routes', 'unding');
 
-    await ensureDir(routesTargetDir);
-    await copy(routesSourceDir, routesTargetDir);
+    await ensureSymlink(routesSourceDir, routesTargetDir);
 }
 
 export async function build() {}
