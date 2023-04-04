@@ -3,7 +3,6 @@
     "private": true,
     "dependencies": {
         "@auth/core": "^0.5.1",
-        "@auth/sveltekit": "^0.3.0",
         "@sveltejs/adapter-node": "^1.2.1",
         "@sveltejs/kit": "^1.15.1",
         "@unding/cli": "workspace:*",
