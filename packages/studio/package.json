@@ -1,6 +1,6 @@
 {
     "name": "@unding/studio",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "dependencies": {
         "@unding/ui": "workspace:^",
         "commander": "^9.2.0",
