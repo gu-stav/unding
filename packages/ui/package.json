@@ -7,5 +7,18 @@
     "scripts": {},
     "type": "module",
     "main": "./src/index.js",
-    "svelte": "./src/index.js"
+    "svelte": "./src/index.js",
+    "exports": {
+        ".": {
+            "import": "./src/index.js",
+            "require": "./src/index.js"
+        },
+        "./app.css": {
+            "import": "./src/app.css"
+        },
+        "./tailwind": {
+            "import": "./src/tailwind.js",
+            "require": "./src/tailwind.cjs"
+        }
+    }
 }
