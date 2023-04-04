@@ -1,9 +1,9 @@
 <script>
     import { page } from "$app/stores";
-    import { Header, InputSwitch, AttributeLayout } from '@unding/components/studio';
+    import { Header, InputSwitch, AttributeLayout } from '@unding/studio/studio/components';
     import { Button } from '@unding/ui';
-    import { contentTypeSync } from '$lib/studio/actions/contentTypeSync';
-    import contentType from '$lib/studio/stores/contentType';
+    import { contentTypeSync } from '@unding/studio/studio/actions';
+    import { contentType } from '@unding/studio/studio/stores';
 
     $: contentType.set($page.data);
 </script>

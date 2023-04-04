@@ -5,6 +5,7 @@
         "@auth/core": "^0.5.1",
         "@sveltejs/adapter-node": "^1.2.3",
         "@sveltejs/kit": "^1.15.1",
+        "@unding/kit": "workspace:^",
         "@unding/studio": "workspace:*",
         "@unding/ui": "workspace:*",
         "svelte": "^3.58.0",

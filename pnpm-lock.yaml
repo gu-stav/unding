@@ -15,6 +15,9 @@ importers:
       '@sveltejs/kit':
         specifier: ^1.15.1
         version: 1.15.1(svelte@3.58.0)(vite@4.2.1)
+      '@unding/kit':
+        specifier: workspace:^
+        version: link:../../packages/kit
       '@unding/studio':
         specifier: workspace:*
         version: link:../../packages/studio
@@ -28,26 +31,23 @@ importers:
         specifier: ^4.2.1
         version: 4.2.1
 
-  packages/schema:
-    dependencies:
-      zod:
-        specifier: ^3.21.2
-        version: 3.21.2
-
-  packages/studio:
+  packages/kit:
     dependencies:
       '@auth/core':
         specifier: ^0.5.1
         version: 0.5.1
       '@auth/sveltekit':
         specifier: ^0.3.0
-        version: 0.3.0(@sveltejs/kit@1.10.0)(svelte@3.55.1)
+        version: 0.3.0(@sveltejs/kit@1.15.1)(svelte@3.58.0)
       '@sveltejs/kit':
         specifier: ^1.10.0
-        version: 1.10.0(svelte@3.55.1)(vite@4.1.4)
+        version: 1.15.1(svelte@3.58.0)(vite@4.2.1)
       '@unding/schema':
         specifier: workspace:*
         version: link:../schema
+      '@unding/studio':
+        specifier: workspace:^
+        version: link:../studio
       '@unding/ui':
         specifier: workspace:*
         version: link:../ui
@@ -74,10 +74,46 @@ importers:
         version: 8.4.21
       svelte:
         specifier: ^3.54.0
-        version: 3.55.1
+        version: 3.58.0
       tailwindcss:
         specifier: ^3.2.7
         version: 3.2.7(postcss@8.4.21)
+      vite:
+        specifier: ^4.1.4
+        version: 4.2.1
+      zod:
+        specifier: ^3.21.2
+        version: 3.21.2
+
+  packages/schema:
+    dependencies:
+      zod:
+        specifier: ^3.21.2
+        version: 3.21.2
+
+  packages/studio:
+    dependencies:
+      '@sveltejs/kit':
+        specifier: ^1.10.0
+        version: 1.10.0(svelte@3.55.1)(vite@4.1.4)
+      '@unding/ui':
+        specifier: workspace:^
+        version: link:../ui
+      commander:
+        specifier: ^9.2.0
+        version: 9.5.0
+      dotenv:
+        specifier: ^16.0.3
+        version: 16.0.3
+      fs-extra:
+        specifier: ^11.1.0
+        version: 11.1.0
+      ora:
+        specifier: ^6.1.0
+        version: 6.1.2
+      svelte:
+        specifier: ^3.54.0
+        version: 3.55.1
       vite:
         specifier: ^4.1.4
         version: 4.1.4
@@ -109,15 +145,15 @@ packages:
       preact-render-to-string: 5.2.3(preact@10.11.3)
     dev: false
 
-  /@auth/sveltekit@0.3.0(@sveltejs/kit@1.10.0)(svelte@3.55.1):
+  /@auth/sveltekit@0.3.0(@sveltejs/kit@1.15.1)(svelte@3.58.0):
     resolution: {integrity: sha512-J9uwaKadzPaQMYec9CYpa9WAjV5EIMEhj4vTuJH6HTp2FJOOJQB5t19WqWv9rYzBVm2rBTPPplQXPI5UKOvg4Q==}
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
       svelte: ^3.54.0
     dependencies:
       '@auth/core': 0.5.1
-      '@sveltejs/kit': 1.10.0(svelte@3.55.1)(vite@4.1.4)
-      svelte: 3.55.1
+      '@sveltejs/kit': 1.15.1(svelte@3.58.0)(vite@4.2.1)
+      svelte: 3.58.0
     transitivePeerDependencies:
       - nodemailer
     dev: false
@@ -1670,7 +1706,7 @@ packages:
       postcss: 8.4.21
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
-      resolve: 1.22.1
+      resolve: 1.22.2
     dev: false
 
   /postcss-js@4.0.1(postcss@8.4.21):
@@ -2033,7 +2069,7 @@ packages:
       postcss-selector-parser: 6.0.11
       postcss-value-parser: 4.2.0
       quick-lru: 5.1.1
-      resolve: 1.22.1
+      resolve: 1.22.2
     transitivePeerDependencies:
       - ts-node
     dev: false

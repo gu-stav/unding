@@ -6,13 +6,13 @@ import { ensureSymlink } from 'fs-extra';
 
 function getSvelteKitPath() {
     const __dirname = fileURLToPath(new URL('.', import.meta.url));
-    const devSvelteKitPath = resolve(join(__dirname, '../../studio'));
+    const devSvelteKitPath = resolve(join(__dirname, '../../kit'));
 
     if (existsSync(devSvelteKitPath)) {
         return devSvelteKitPath;
     }
 
-    return resolve("node_modules", "@unding", "studio");
+    return resolve("node_modules", "@unding", "kit");
 }
 
 async function linkStudio() {

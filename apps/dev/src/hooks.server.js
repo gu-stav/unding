@@ -1,3 +1,3 @@
-import { handle } from '@unding/studio/hooks';
+import { handle } from '@unding/kit/hooks';
 
 export { handle };
