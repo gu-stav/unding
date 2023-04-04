@@ -18,18 +18,8 @@ async function authorization({ event, resolve }) {
 const loadConfig = async ({ event, resolve }) => {
   event.locals.auth = auth();
 
-  const { validate, getContentTypes } = schema();
-
-  // TODO: this needs to happen in the CLI
-  try {
-    validate();
-  } catch(error) {
-    console.log('Schema validation error');
-    console.log(error.error.issues);
-  }
-
   // TODO: pass down user for access control
-  event.locals.schema = getContentTypes();
+  event.locals.schema = schema;
 
   return await resolve(event);
 };

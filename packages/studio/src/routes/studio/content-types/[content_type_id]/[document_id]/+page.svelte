@@ -1,6 +1,6 @@
 <script>
     import { page } from "$app/stores";
-    import { Header, InputSwitch, AttributeLayout } from '$lib/studio/components';
+    import { Header, InputSwitch, AttributeLayout, Sidebar } from '$lib/studio/components';
     import { Button } from '@unding/ui';
     import { contentTypeSync } from '$lib/studio/actions/contentTypeSync';
     import contentType from '$lib/studio/stores/contentType';
@@ -18,20 +18,34 @@
             <Button type="submit">
                 Save
             </Button>
+
+            <Button type="submit">
+                Save & Publish
+            </Button>
         </svelte:fragment>
     </Header>
 
-    <AttributeLayout.Root>
-        {#each $page.data.layout as row}
-            <AttributeLayout.Row>
-                {#each row as column}
-                    {@const field = $contentType.contentType.attributes.find(attribute => attribute.name === column.name)}
+    <div class="flex">
+        <div class="flex-grow">
+            <AttributeLayout.Root>
+                {#each $page.data.layout as row}
+                    <AttributeLayout.Row>
+                        {#each row as column}
+                            {@const field = $contentType.contentType.attributes.find(attribute => attribute.name === column.name)}
 
-                    <AttributeLayout.Column colSpan={column.width}>
-                        <InputSwitch {...field} />
-                    </AttributeLayout.Column>
+                            <AttributeLayout.Column colSpan={column.width}>
+                                <InputSwitch {...field} />
+                            </AttributeLayout.Column>
+                        {/each}
+                    </AttributeLayout.Row>
                 {/each}
-            </AttributeLayout.Row>
-        {/each}
-    </AttributeLayout.Root>
+            </AttributeLayout.Root>
+        </div>
+
+        <Sidebar.Root>
+            <Sidebar.Section title="Document Info"></Sidebar.Section>
+            <Sidebar.Section title="Stages"></Sidebar.Section>
+            <Sidebar.Section title="Versions"></Sidebar.Section>
+        </Sidebar.Root>
+    </div>
 </form>
