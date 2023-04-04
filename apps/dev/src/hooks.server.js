@@ -1,3 +1,1 @@
-import { handle } from '@unding/kit/hooks';
-
-export { handle };
+export { handle } from '@unding/kit/hooks';
