@@ -25,8 +25,8 @@
     "type": "module",
     "main": "./src/index.js",
     "exports": {
-        ".": {
-            "import": "./src/index.js"
+        "./hooks": {
+            "import": "./src/hooks.server.js"
         },
 
         "./vite": {
