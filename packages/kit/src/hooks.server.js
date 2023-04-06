@@ -3,11 +3,13 @@ import { sequence } from '@sveltejs/kit/hooks';
 import { redirect } from '@sveltejs/kit';
 
 async function authorization({ event, resolve }) {
-  if (event.url.pathname.startsWith('/studio')) {
-      const session = await event.locals.getSession();
+  const { locals } = event;
+
+  if (event.url.pathname.startsWith(`/${locals.prefix}/studio`)) {
+      const session = await locals.getSession();
 
       if (!session) {
-          throw redirect(303, '/auth/signin');
+          throw redirect(303, `/${locals.prefix}/auth/signin`);
       }
   }
 
@@ -15,9 +17,11 @@ async function authorization({ event, resolve }) {
 }
 
 const loadConfig = async ({ event, resolve }) => {
-  const { auth, schema } = await import('virtual:unding-config');
+  const { config, schema } = await import('virtual:unding-config');
+  const studioConfig = config();
 
-  event.locals.auth = auth();
+  event.locals.prefix = studioConfig.prefix;
+  event.locals.auth = studioConfig.auth;
 
   // TODO: pass down user for access control
   event.locals.schema = schema;
@@ -29,6 +33,7 @@ const setupAuthProviders = async (...args) => {
   const { event } = args[0];
 
   return SvelteKitAuth({
+    prefix: `/${event.locals.prefix}`,
     trustHost: true,
     providers: event.locals.auth.providers,
   })(...args);

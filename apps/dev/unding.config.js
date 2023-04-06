@@ -7,14 +7,18 @@ import pages from './content-schemas/pages';
 // component overwrites
 import NewHeader from './NewHeader.svelte';
 
-export const auth = () => ({
-    providers: [
-        GitHub({
-            clientId: process.env.GITHUB_ID,
-            clientSecret: process.env.GITHUB_SECRET
-        })
-    ]
-});
+export const config = () => ({
+    prefix: 'unding',
+
+    auth: {
+        providers: [
+            GitHub({
+                clientId: process.env.GITHUB_ID,
+                clientSecret: process.env.GITHUB_SECRET
+            })
+        ]
+    }
+})
 
 export const components = {
     Header: NewHeader
