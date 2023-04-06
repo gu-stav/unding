@@ -1,8 +1,8 @@
 <script>
-    import "../app.css";
+    import "@unding/ui/app.css";
 
     import { page } from "$app/stores";
-    import { AppLayout, AppHeader } from "$lib/shared/components";
+    import { AppLayout, AppHeader } from "@unding/studio/shared/components";
     import { Input, Menu } from '@unding/ui';
 
     const GROUPS = [

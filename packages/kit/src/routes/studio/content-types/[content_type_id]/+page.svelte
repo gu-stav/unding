@@ -1,9 +1,9 @@
 <script>
     import { invalidateAll } from '$app/navigation';
     import { page } from "$app/stores";
-    import { AttributeValue, Header, ComposableComponent, DataTable } from '$lib/studio/components';
-    import { Pagination } from '$lib/shared/components';
-    import { components } from '$lib/shared/stores/components';
+    import { AttributeValue, Header, ComposableComponent, DataTable } from '@unding/studio/studio/components';
+    import { Pagination } from '@unding/studio/shared/components';
+    import { components } from '@unding/studio/shared/stores';
     import { Button } from '@unding/ui';
 
     function appendURLParam(key, value) {

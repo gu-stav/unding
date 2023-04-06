@@ -2,7 +2,7 @@
 
 import { program } from "commander";
 
-import { dev, build, start } from '../index.js';
+import { dev, build, start } from './programs.js';
 
 program
   .command('build')
