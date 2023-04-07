@@ -15,6 +15,15 @@
     </SubNavigation.Group>
 </SubNavigation>
 
-<div class="flex flex-col grow max-h-full">
+<div class="main">
     <slot />
 </div>
+
+<style>
+    .main {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        max-height: 100vh;
+    }
+</style>

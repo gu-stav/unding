@@ -2,12 +2,22 @@
     export let as = 'button';
 </script>
 
-<svelte:element this={as} class="bg-gray-700 hover:bg-gray-900 text-gray-200 px-2 py-1 rounded focus:outline focus:outline-2 focus:outline-gray-800" {...$$restProps}>
+<svelte:element this={as} {...$$restProps}>
     <slot />
 </svelte:element>
 
 <style>
     button {
-        border: 1px solid red;
+        background: var(--color-slate-700);
+        border: none;
+        border-radius: var(--radius);
+        color: var(--color-slate-200);
+        padding-block: var(--spacing-2);
+        padding-inline: var(--spacing-4);
+    }
+
+    button:hover,
+    button:focus {
+        background-color: var(--color-slate-900);
     }
 </style>

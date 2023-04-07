@@ -4,7 +4,7 @@
     let isExpanded = true;
 </script>
 
-<nav class:p-3={isExpanded} class="flex flex-direction-col gap-4 bg-gray-100 text-gray-800 relative shrink-0 border-gray-200 border-r-[1px]">
+<nav class:expanded={isExpanded}>
     <ToggleButton on:click={() => {
         isExpanded = !isExpanded;
     }}>
@@ -15,3 +15,20 @@
         <slot />
     {/if}
 </nav>
+
+<style>
+    nav {
+        background-color: var(--color-slate-100);
+        border-right: 1px solid var(--color-slate-200);
+        color: var(--color-slate-800);
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        gap: var(--spacing-4);
+        position: relative;
+    }
+
+    nav.expanded {
+        padding: var(--spacing-3);
+    }
+</style>

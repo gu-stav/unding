@@ -10,12 +10,35 @@
     }
 </script>
 
-<div class="relative">
+<div class="container">
     <button type="button" on:click={handleToggle}>
         <slot name="trigger" />
     </button>
 
-    <div class:hidden={!isOpen} class="bg-white text-gray-800 w-full p-2 rounded translate-y-2 absolute l-0 top-full z-50">
+    <div class:visible={isOpen} class="portal">
         <slot name="portal" />
     </div>
 </div>
+
+<style>
+    .container {
+        position: relative;
+    }
+
+    .portal {
+        background-color: var(--color-white);
+        border-radius: var(--spacing);
+        color: var(--color-slate-800);
+        display: none;
+        left: 0;
+        padding: var(--spacing-2);
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        z-index: 50;
+    }
+
+    .portal.visible {
+        display: block;
+    }
+</style>

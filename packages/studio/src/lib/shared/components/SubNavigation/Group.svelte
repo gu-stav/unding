@@ -2,12 +2,32 @@
     export let title;
 </script>
 
-<div class="flex-direction-col gap-2">
-    <strong class="block uppercase p-2">
+<div class="group">
+    <strong class="title">
         {title}
     </strong>
 
-    <ol class="flex flex-col gap-1">
+    <ol class="items">
         <slot />
     </ol>
 </div>
+
+<style>
+    .group {
+        flex-direction: column;
+        gap: var(--spacing-2);
+    }
+
+    .title {
+        display: block;
+        padding: var(--spacing-2);
+        text-transform: uppercase;
+    }
+
+    .items {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-1);
+        list-style: none;
+    }
+</style>

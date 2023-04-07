@@ -5,7 +5,7 @@ A SvelteKit CMS exploration.
 ## Monorepo structure
 
 - `apps/`:
-    - `dev`: Example applications
+    - `dev`: Development application
 - `packages/`:
     - `capi`: Content API
     - `cli`: `unding` CLI command

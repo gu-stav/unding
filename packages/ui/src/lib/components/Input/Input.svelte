@@ -4,4 +4,23 @@
     export let error;
 </script>
 
-<input class="p-2 w-full rounded border-gray-300 border-[1px] text-gray-800 focus:outline focus:outline-2 focus:outline-gray-700" class:bg-gray-100={!!disabled} class:bg-red-100={!!error} class:border-red-400={!!error} disabled={disabled} id={name} name={name} {...$$restProps} />
+<input class:error={!!error} disabled={disabled} id={name} name={name} {...$$restProps} />
+
+<style>
+    input {
+        border: 1px solid var(--color-slate-300);
+        border-radius: var(--radius);
+        color: var(--color-slate-800);
+        padding: var(--spacing-2);
+        width: 100%;
+    }
+
+    input[disabled] {
+        background-color: var(--color-slate-100);
+    }
+
+    input.error {
+        background-color: var(--color-red-100);
+        border-color: var(--color-red-400);
+    }
+</style>
