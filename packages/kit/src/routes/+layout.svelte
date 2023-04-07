@@ -51,7 +51,7 @@
                 {/if}
             </svelte:fragment>
 
-            <form method="POST" action="?/search" slot="search" class="flex-grow">
+            <form method="POST" action="?/search" slot="search" class="search">
                 <Input name="term" placeholder="Search" />
             </form>
         </AppHeader>
@@ -59,3 +59,9 @@
 
     <slot />
 </AppLayout>
+
+<style>
+    .search {
+        flex-grow: 1;
+    }
+</style>
