@@ -17,9 +17,9 @@ function getSvelteKitPath() {
 
 async function linkStudio() {
     const cwd = process.cwd();
-    const cmsStudioPath = getSvelteKitPath();
+    const kitPath = getSvelteKitPath();
 
-    const routesSourceDir = join(cmsStudioPath, 'src', 'routes');
+    const routesSourceDir = join(kitPath, 'src', 'routes');
     const routesTargetDir = join(cwd, 'src', 'routes', 'unding');
 
     await ensureSymlink(routesSourceDir, routesTargetDir);
