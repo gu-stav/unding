@@ -6,7 +6,7 @@
     export let name;
 </script>
 
-<div class="flex flex-col gap-1">
+<div class="container">
     <Label for={name}>
         <slot name="label" />
     </Label>
@@ -21,3 +21,11 @@
 
     <slot name="field" />
 </div>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-1);
+    }
+</style>

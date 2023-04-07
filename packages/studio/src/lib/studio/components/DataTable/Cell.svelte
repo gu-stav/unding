@@ -1,3 +1,10 @@
-<td class="p-3 border-gray-100 border-b-[1px]">
+<td>
     <slot />
 </td>
+
+<style>
+    td {
+        border-bottom: 1px solid var(--color-slate-100);
+        padding: var(--spacing-3);
+    }
+</style>

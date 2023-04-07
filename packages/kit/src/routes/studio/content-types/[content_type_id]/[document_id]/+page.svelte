@@ -25,8 +25,8 @@
         </svelte:fragment>
     </Header>
 
-    <div class="flex">
-        <div class="flex-grow">
+    <div class="content-container">
+        <div class="attribute-container">
             <AttributeLayout.Root>
                 {#each $page.data.layout as row}
                     <AttributeLayout.Row>
@@ -49,3 +49,13 @@
         </Sidebar.Root>
     </div>
 </form>
+
+<style>
+    .content-container {
+        display: flex;
+    }
+
+    .attribute-container {
+        flex-grow: 1;
+    }
+</style>

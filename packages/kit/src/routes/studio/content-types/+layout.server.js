@@ -2,7 +2,7 @@ import { redirect } from "@sveltejs/kit";
 
 export function load({ locals, params }) {
     if (!params.content_type_id) {
-        throw redirect(301, `${locals.prefix}/studio/content-types/${locals.schema[0].name.plural}`);
+        throw redirect(301, `/${locals.prefix}/studio/content-types/${locals.schema[0].name.plural}`);
     }
 
     return {

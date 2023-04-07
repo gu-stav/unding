@@ -39,7 +39,7 @@ export function unding() {
                         ...config?.resolve?.alias,
                         {
                             find: 'virtual:unding-config',
-				            replacement: `${process.cwd()}/unding.config.js`
+                            replacement: `${process.cwd()}/unding.config.js`
                         }
                     ]
                 },
