@@ -4,6 +4,7 @@
     import { AttributeValue, Header, ComposableComponent, DataTable } from '@unding/studio/studio/components';
     import { Pagination } from '@unding/studio/shared/components';
     import { components } from '@unding/studio/shared/stores';
+    import { createUrlPath } from "@unding/studio/shared/utils";
     import { Button } from '@unding/ui';
 
     function appendURLParam(key, value) {
@@ -22,7 +23,7 @@
         </svelte:fragment>
 
         <svelte:fragment slot="action">
-            <Button as="a" href="/studio/content-types/{$page.params.content_type_id}/create">
+            <Button as="a" href={createUrlPath($page.data.prefix, `studio/content-types/${$page.params.content_type_id}/create`)}>
                 + Create {$page.data.contentType.name.display}
             </Button>
         </svelte:fragment>
@@ -33,7 +34,7 @@
     <DataTable.Header>
         {#each $page.data.contentType.attributes as attribute}
             <DataTable.HeaderCell>
-                <a href="/studio/content-types/{$page.params.content_type_id}?{appendURLParam('sort', attribute)}" on:click={async () => {
+                <a href={createUrlPath($page.data.prefix, `studio/content-types/${$page.params.content_type_id}?${appendURLParam('sort', attribute)}`)} on:click={async () => {
                     // otherwise the page does not call load again
                     await invalidateAll();
                 }}>{attribute.name}</a>
@@ -53,7 +54,7 @@
                 {/each}
 
                 <DataTable.Cell>
-                    <a href="/studio/content-types/{$page.params.content_type_id}/{document.uid}/">Edit</a>
+                    <a href={createUrlPath($page.data.prefix, `studio/content-types/${$page.params.content_type_id}/${document.uid}/`)}>Edit</a>
                 </DataTable.Cell>
             </DataTable.Row>
         {/each}

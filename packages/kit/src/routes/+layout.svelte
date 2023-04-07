@@ -3,6 +3,7 @@
 
     import { page } from "$app/stores";
     import { AppLayout, AppHeader } from "@unding/studio/shared/components";
+    import { createUrlPath } from "@unding/studio/shared/utils";
     import { Input, Menu } from '@unding/ui';
 
     const GROUPS = [
@@ -10,12 +11,12 @@
             items: [
                 {
                     label: 'Content-Types',
-                    href: '/studio/content-types',
+                    href: createUrlPath($page.data.prefix, 'studio/content-types'),
                 },
 
                 {
                     label: 'Assets',
-                    href: '/studio/assets',
+                    href: createUrlPath($page.data.prefix, 'studio/assets'),
                 },
             ],
         },

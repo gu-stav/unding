@@ -1,5 +1,10 @@
+<script>
+    import { page } from "$app/stores";
+    import { createUrlPath } from "../../utils/createUrlPath";
+</script>
+
 <nav class="container">
-    <a href="/studio" class="logo">
+    <a href={createUrlPath($page.data.prefix, 'studio')} class="logo">
         Unding
     </a>
 
