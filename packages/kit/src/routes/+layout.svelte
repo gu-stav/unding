@@ -1,5 +1,5 @@
 <script>
-    import "@unding/ui/app.css";
+    import '@unding/ui/Layout';
 
     import { page } from "$app/stores";
     import { AppLayout, AppHeader } from "@unding/studio/shared/components";
